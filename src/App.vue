@@ -1,32 +1,42 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+  <v-app>
+    <v-app-bar app color="primary" dark>
+      <v-spacer></v-spacer>
+    </v-app-bar>
+    <v-content>
+      <Tabs class="ma-5" />
+    </v-content>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import Tabs from '@/components/Tabs'
+export default {
+  name: 'App',
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+  components: {
+    Tabs
+  },
+  methods: {
+    buyTv() {
+      // Dispatch the action to buy a TV
+      this.$store.dispatch('removeTv', 1)
+    },
+    buy2Tvs() {
+      // Dispatch the action to buy a TV
+      this.$store.dispatch('removeTv', 2)
     }
-  }
+  },
+  computed: {
+    totalTvCount() {
+      return this.$store.state.totalTvCount
+    },
+
+    teste() {
+      return this.$store.getters.cf_salarios
+    }
+  },
+
+  data: () => ({})
 }
-</style>
+</script>
