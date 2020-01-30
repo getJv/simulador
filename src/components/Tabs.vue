@@ -54,8 +54,8 @@ export default {
     Tributacao,
     VariaveisControle,
     EquipamentosInstalacoes,
-    Simulador
-  }
+    Simulador,
+  },
 }
 </script>
 

@@ -29,35 +29,35 @@ export default {
       itens: [
         {
           nome: 'Salarios',
-          valor: this.$store.getters.cf_salarios
+          valor: this.$store.getters.cf_salarios,
         },
         {
           nome: 'Depreciação das instalações',
-          valor: this.$store.getters.cf_depreciacao_das_instalacoes
+          valor: this.$store.getters.cf_depreciacao_das_instalacoes,
         },
         {
           nome: 'Manutenção das Instalções',
-          valor: this.$store.getters.cf_manutecao_das_instalacoes
+          valor: this.$store.getters.cf_manutecao_das_instalacoes,
         },
         {
           nome: 'Depreciação do maquinário',
-          valor: this.$store.getters.cf_depreciacao_maquinario
+          valor: this.$store.getters.cf_depreciacao_maquinario,
         },
         {
           nome: 'Seguros',
-          valor: this.$store.getters.cf_seguros
+          valor: this.$store.getters.cf_seguros,
         },
         {
           nome: 'Custo de Oportunidade',
-          valor: this.$store.getters.cf_custo_de_oportunidade
+          valor: this.$store.getters.cf_custo_de_oportunidade,
         },
         {
           nome: 'Custo Fixo',
-          valor: this.$store.getters.cf_total_custo_fixo
-        }
-      ]
+          valor: this.$store.getters.cf_total_custo_fixo,
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 

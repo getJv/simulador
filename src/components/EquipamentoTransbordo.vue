@@ -44,11 +44,11 @@ export default {
   computed: {
     itens() {
       return this.$store.state.equipamento_transbordo
-    }
+    },
   },
   data() {
     return {}
-  }
+  },
 }
 </script>
 

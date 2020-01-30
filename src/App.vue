@@ -15,7 +15,7 @@ export default {
   name: 'App',
 
   components: {
-    Tabs
+    Tabs,
   },
   methods: {
     buyTv() {
@@ -25,7 +25,7 @@ export default {
     buy2Tvs() {
       // Dispatch the action to buy a TV
       this.$store.dispatch('removeTv', 2)
-    }
+    },
   },
   computed: {
     totalTvCount() {
@@ -34,9 +34,9 @@ export default {
 
     teste() {
       return this.$store.getters.cf_salarios
-    }
+    },
   },
 
-  data: () => ({})
+  data: () => ({}),
 }
 </script>

@@ -13,7 +13,7 @@ export default new Vuex.Store({
         valor: 213160,
         valor_corrigido: 227186,
         periodo_depreciacao: 20,
-        depreciacao: 11359
+        depreciacao: 11359,
       },
       {
         id: 2,
@@ -22,7 +22,7 @@ export default new Vuex.Store({
         valor: 260000,
         valor_corrigido: 277108,
         periodo_depreciacao: 20,
-        depreciacao: 13855
+        depreciacao: 13855,
       },
       {
         id: 3,
@@ -31,7 +31,7 @@ export default new Vuex.Store({
         valor: 200000,
         valor_corrigido: 213160,
         periodo_depreciacao: 20,
-        depreciacao: 10658
+        depreciacao: 10658,
       },
       {
         id: 4,
@@ -40,7 +40,7 @@ export default new Vuex.Store({
         valor: 600000,
         valor_corrigido: 639480,
         periodo_depreciacao: 20,
-        depreciacao: 31974
+        depreciacao: 31974,
       },
       {
         id: 5,
@@ -49,7 +49,7 @@ export default new Vuex.Store({
         valor: 280000,
         valor_corrigido: 298424,
         periodo_depreciacao: 20,
-        depreciacao: 14921
+        depreciacao: 14921,
       },
       {
         id: 6,
@@ -58,7 +58,7 @@ export default new Vuex.Store({
         valor: 280000,
         valor_corrigido: 298424,
         periodo_depreciacao: 20,
-        depreciacao: 14921
+        depreciacao: 14921,
       },
       {
         id: 7,
@@ -67,7 +67,7 @@ export default new Vuex.Store({
         valor: 202500,
         valor_corrigido: 215825,
         periodo_depreciacao: 25,
-        depreciacao: 8633
+        depreciacao: 8633,
       },
       {
         id: 8,
@@ -76,7 +76,7 @@ export default new Vuex.Store({
         valor: 4860000,
         valor_corrigido: 5179788,
         periodo_depreciacao: 25,
-        depreciacao: 207192
+        depreciacao: 207192,
       },
       {
         id: 9,
@@ -85,7 +85,7 @@ export default new Vuex.Store({
         valor: 945000,
         valor_corrigido: 1007181,
         periodo_depreciacao: 20,
-        depreciacao: 50359
+        depreciacao: 50359,
       },
       {
         id: 10,
@@ -94,7 +94,7 @@ export default new Vuex.Store({
         valor: 540000,
         valor_corrigido: 575532,
         periodo_depreciacao: 20,
-        depreciacao: 28777
+        depreciacao: 28777,
       },
       {
         id: 11,
@@ -103,12 +103,12 @@ export default new Vuex.Store({
         valor: 2295000,
         valor_corrigido: 2446011,
         periodo_depreciacao: 20,
-        depreciacao: 122301
-      }
+        depreciacao: 122301,
+      },
     ],
     inflacao: {
       periodo: 'jun/13 - jun/14',
-      valor: 1.0658
+      valor: 1.0658,
     },
     equipamentos_instalacoes: [
       {
@@ -117,7 +117,7 @@ export default new Vuex.Store({
         valor: 200000,
         obs: '',
         quantidade: 0,
-        total: 0
+        total: 0,
       },
       {
         id: 2,
@@ -125,7 +125,7 @@ export default new Vuex.Store({
         valor: 260000,
         obs: '',
         quantidade: 0,
-        total: 0
+        total: 0,
       },
       {
         id: 3,
@@ -133,7 +133,7 @@ export default new Vuex.Store({
         valor: 200000,
         obs: '',
         quantidade: 0,
-        total: 0
+        total: 0,
       },
       {
         id: 4,
@@ -141,7 +141,7 @@ export default new Vuex.Store({
         valor: 300000,
         obs: '',
         quantidade: 0,
-        total: 0
+        total: 0,
       },
       {
         id: 5,
@@ -149,7 +149,7 @@ export default new Vuex.Store({
         valor: 140000,
         obs: '',
         quantidade: 0,
-        total: 0
+        total: 0,
       },
       {
         id: 6,
@@ -157,7 +157,7 @@ export default new Vuex.Store({
         valor: 67500,
         obs: '',
         quantidade: 0,
-        total: 0
+        total: 0,
       },
       {
         id: 7,
@@ -165,7 +165,7 @@ export default new Vuex.Store({
         valor: 135,
         obs: 'R$/ton',
         quantidade: 0,
-        total: 0
+        total: 0,
       },
       {
         id: 8,
@@ -173,7 +173,7 @@ export default new Vuex.Store({
         valor: 4725,
         obs: '',
         quantidade: 0,
-        total: 0
+        total: 0,
       },
       {
         id: 9,
@@ -181,7 +181,7 @@ export default new Vuex.Store({
         valor: 10800,
         obs: '',
         quantidade: 0,
-        total: 0
+        total: 0,
       },
       {
         id: 10,
@@ -189,7 +189,7 @@ export default new Vuex.Store({
         valor: 11475,
         obs: '',
         quantidade: 0,
-        total: 0
+        total: 0,
       },
       {
         id: 11,
@@ -197,7 +197,7 @@ export default new Vuex.Store({
         valor: 500,
         obs: 'R$/ton',
         quantidade: 0,
-        total: 0
+        total: 0,
       },
       {
         id: 12,
@@ -205,7 +205,7 @@ export default new Vuex.Store({
         valor: 1151019.98,
         obs: 'R$/km',
         quantidade: 1,
-        total: 1151019.98
+        total: 1151019.98,
       },
       {
         id: 13,
@@ -213,7 +213,7 @@ export default new Vuex.Store({
         valor: 5371199.42,
         obs: 'R$/km',
         quantidade: 3,
-        total: 16113598.26
+        total: 16113598.26,
       },
       {
         id: 14,
@@ -221,7 +221,7 @@ export default new Vuex.Store({
         valor: 800000,
         obs: '',
         quantidade: 0,
-        total: 0
+        total: 0,
       },
       {
         id: 15,
@@ -229,7 +229,7 @@ export default new Vuex.Store({
         valor: 0.29,
         obs: 'R$/kw',
         quantidade: 0,
-        total: 0
+        total: 0,
       },
       {
         id: 16,
@@ -237,33 +237,33 @@ export default new Vuex.Store({
         valor: 240,
         obs: '',
         quantidade: 0,
-        total: 0
-      }
+        total: 0,
+      },
     ],
     tributos: [
       {
         nome: 'pis',
-        valor: 0.03
+        valor: 0.03,
       },
       {
         nome: 'cofins',
-        valor: 0.0065
+        valor: 0.0065,
       },
       {
         nome: 'csll',
-        valor: 0.018
+        valor: 0.018,
       },
       {
         nome: 'ir',
-        valor: 0.05
+        valor: 0.05,
       },
       {
         nome: 'iss',
-        valor: 0.05
-      }
+        valor: 0.05,
+      },
     ],
     custo_variavel: {
-      mao_de_obra: 0
+      mao_de_obra: 0,
     },
 
     controle: {
@@ -284,13 +284,13 @@ export default new Vuex.Store({
       fator_manutencao_do_maquinario: 0.015,
       remuneracao_do_capital: 0.1,
       seguros: 0.2 / 100,
-      margem_de_lucro: 0
+      margem_de_lucro: 0,
     },
     todos: [
       { id: 1, text: '...', done: true },
-      { id: 2, text: '...', done: false }
+      { id: 2, text: '...', done: false },
     ],
-    totalTvCount: 10
+    totalTvCount: 10,
   },
   getters: {
     ctrl_total_tributos: state => {
@@ -302,16 +302,16 @@ export default new Vuex.Store({
       return sum
     },
     ctrl_tombamento_medio_por_hora: state => {
-      return (
+      return Math.round(
         state.equipamento_transbordo[4].quantidade *
-        40 *
-        6 *
-        state.controle.disponibilidade_por_tombador *
-        state.controle.disponibilidade_de_caminhoes_no_patio
+          40 *
+          6 *
+          state.controle.disponibilidade_por_tombador *
+          state.controle.disponibilidade_de_caminhoes_no_patio,
       )
     },
     ctrl_tempo_medio_de_armazenagem: (state, getters) => {
-      return 365 / getters.ctrl_giro
+      return Math.round(365 / getters.ctrl_giro)
     },
     ctrl_horas_de_funcionamento_mensal: state => {
       return (
@@ -336,7 +336,14 @@ export default new Vuex.Store({
       )
     },
     ctrl_tarifa_energia: state => {
-      return state.equipamentos_instalacoes[14].valor * state.inflacao.valor * 2
+      return (
+        Math.round(
+          state.equipamentos_instalacoes[14].valor *
+            state.inflacao.valor *
+            2 *
+            100,
+        ) / 100
+      )
     },
     ctrl_numero_funcionarios: (state, getters) => {
       return Math.round(25 + (0.055 * getters.ctrl_movimentacao) / 1000)
@@ -366,7 +373,12 @@ export default new Vuex.Store({
     },
     ctrl_tarifa: (state, getters) => {
       return (
-        getters.ctrl_tributos + getters.ctrl_lucro + getters.ctrl_tarifa_limpa
+        Math.round(
+          (getters.ctrl_tributos +
+            getters.ctrl_lucro +
+            getters.ctrl_tarifa_limpa) *
+            100,
+        ) / 100
       )
     },
     // Custo Variável
@@ -410,7 +422,6 @@ export default new Vuex.Store({
       )
     },
     cf_manutecao_das_instalacoes: (state, getters) => {
-      console.log(getters.ctrl_instalacoes)
       return (
         getters.ctrl_instalacoes * state.controle.fator_manutencao_obra_civil
       )
@@ -455,19 +466,22 @@ export default new Vuex.Store({
       })
 
       return sum
-    }
+    },
   },
   mutations: {
-    removeTv(state, amount) {
-      state.totalTvCount = state.totalTvCount - amount
-    }
+    capacidade_estatica(state, value) {
+      state.controle.capacidade_estatica = value
+    },
+    salario_medio_do_setor(state, value) {
+      state.controle.salario_medio_do_setor = value
+    },
   },
   actions: {
     removeTv(context, amount) {
       if (context.state.totalTvCount >= amount) {
         context.commit('removeTv', amount)
       }
-    }
+    },
   },
-  modules: {}
+  modules: {},
 })

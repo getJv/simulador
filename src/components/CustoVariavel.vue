@@ -29,23 +29,23 @@ export default {
       itens: [
         {
           nome: 'Mão de Obra',
-          valor: this.$store.state.custo_variavel.mao_de_obra
+          valor: this.$store.state.custo_variavel.mao_de_obra,
         },
         {
           nome: 'Energia Eletrica',
-          valor: this.$store.getters.cv_energia_eletrica
+          valor: this.$store.getters.cv_energia_eletrica,
         },
         {
           nome: 'Manutenção de maquinário',
-          valor: this.$store.getters.cv_manutencao_maquinario
+          valor: this.$store.getters.cv_manutencao_maquinario,
         },
         {
           nome: 'Custo Variável',
-          valor: this.$store.getters.cv_total_custo_variavel
-        }
-      ]
+          valor: this.$store.getters.cv_total_custo_variavel,
+        },
+      ],
     }
-  }
+  },
 }
 </script>
 

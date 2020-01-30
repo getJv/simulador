@@ -30,9 +30,9 @@ export default {
   computed: {},
   data() {
     return {
-      itens: this.$store.state.tributos
+      itens: this.$store.state.tributos,
     }
-  }
+  },
 }
 </script>
 

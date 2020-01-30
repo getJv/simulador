@@ -33,11 +33,11 @@ export default {
   computed: {
     itens() {
       return this.$store.state.equipamentos_instalacoes
-    }
+    },
   },
   data() {
     return {}
-  }
+  },
 }
 </script>
 
