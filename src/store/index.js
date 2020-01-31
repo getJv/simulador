@@ -176,7 +176,7 @@ export default new Vuex.Store({
         currency: false,
       },
     ],
-
+     Parei movendo a variavel 5
     /* controle: {
       capacidade_estatica: 36000,
       disponibilidade_por_tombador: 0.85,
