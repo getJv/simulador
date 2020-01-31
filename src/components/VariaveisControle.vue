@@ -26,9 +26,32 @@
 <script>
 export default {
   computed: {},
+  mounted() {
+    this.itens = this.itens = this.$store.state.controle
+    this.itens.forEach(campo => {
+      var formula = this.formulas.find(f => f.campo_id == campo.id)
+      if (formula) {
+        campo.valor = formula.valor
+      }
+      //this.total_custo_fixo += campo.valor
+    })
+  },
   data() {
     return {
-      itens: [
+      itens: null,
+      formulas: [
+        {
+          campo_id: 2,
+          valor: Math.round(
+            this.$store.state.equipamento_transbordo[4].quantidade *
+              40 *
+              6 *
+              this.$store.state.controle.disponibilidade_por_tombador *
+              this.$store.state.controle.disponibilidade_de_caminhoes_no_patio,
+          ),
+        },
+      ],
+      /*  [
         {
           nome: 'Capacidade estatica',
           valor: this.$store.state.controle.capacidade_estatica,
@@ -40,6 +63,7 @@ export default {
           currency: false,
         },
         {
+          id:3,
           nome: 'Disponibilidade por tombador',
           valor: this.$store.state.controle.disponibilidade_por_tombador,
           currency: false,
@@ -180,7 +204,7 @@ export default {
           valor: this.$store.getters.ctrl_tarifa,
           currency: true,
         },
-      ],
+      ], */
     }
   },
 }

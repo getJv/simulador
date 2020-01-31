@@ -5,6 +5,50 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    custo_fixo: [
+      {
+        id: 1,
+        nome: 'Salarios',
+        valor: 0,
+      },
+      {
+        id: 2,
+        nome: 'Depreciação das instalações',
+        valor: 0,
+      },
+      {
+        id: 3,
+        nome: 'Manutenção das Instalções',
+        valor: 0,
+      },
+      {
+        id: 4,
+        nome: 'Depreciação do maquinário',
+        valor: 0,
+      },
+      {
+        id: 5,
+        nome: 'Seguros',
+        valor: 0,
+      },
+      {
+        id: 6,
+        nome: 'Custo de Oportunidade',
+        valor: 0,
+      },
+      {
+        id: 7,
+        nome: 'Custo Fixo',
+        valor: 0,
+      },
+    ],
+    custo_variavel: [
+      { id: 1, nome: 'Mão de obra', valor: 0 },
+      { id: 2, nome: 'Energia elétrica', valor: 0 },
+      { id: 3, nome: 'Manutenção de maquinário', valor: 0 },
+      { id: 4, nome: 'Total de custo variável', valor: 0 },
+    ],
+
     equipamento_transbordo: [
       {
         id: 1,
@@ -106,6 +150,53 @@ export default new Vuex.Store({
         depreciacao: 122301,
       },
     ],
+    controle: [
+      {
+        id: 1,
+        nome: 'Capacidade estatica',
+        valor: 36000,
+        currency: false,
+      },
+      {
+        id: 2,
+        nome: 'Tombamento médio por hora',
+        valor: 0,
+        currency: false,
+      },
+      {
+        id: 3,
+        nome: 'Disponibilidade por tombador',
+        valor: 0.85,
+        currency: false,
+      },
+      {
+        id: 4,
+        nome: 'Disponibilidade de caminhões no pátio',
+        valor: 0.9,
+        currency: false,
+      },
+    ],
+
+    /* controle: {
+      capacidade_estatica: 36000,
+      disponibilidade_por_tombador: 0.85,
+      disponibilidade_de_caminhoes_no_patio: 0.9,
+      horas_de_funcionamento_diario: 24,
+      paradas_para_manutencao_mensal: 0.1,
+      meses_de_safra_no_ano: 6,
+      carga_na_safra: 1.0,
+      carga_na_entre_safra: 0.25,
+      consumo_medio: 1.7,
+      salario_medio_do_setor: 1293.89,
+      encargos_sociais: 0.99,
+      beneficios: 0.33,
+      periodo_depreciacao_obra_civil: 40,
+      fator_manutencao_obra_civil: 0.005,
+      fator_manutencao_do_maquinario: 0.015,
+      remuneracao_do_capital: 0.1,
+      seguros: 0.2 / 100,
+      margem_de_lucro: 0,
+    }, */
     inflacao: {
       periodo: 'jun/13 - jun/14',
       valor: 1.0658,
@@ -262,30 +353,7 @@ export default new Vuex.Store({
         valor: 0.05,
       },
     ],
-    custo_variavel: {
-      mao_de_obra: 0,
-    },
 
-    controle: {
-      capacidade_estatica: 36000,
-      disponibilidade_por_tombador: 0.85,
-      disponibilidade_de_caminhoes_no_patio: 0.9,
-      horas_de_funcionamento_diario: 24,
-      paradas_para_manutencao_mensal: 0.1,
-      meses_de_safra_no_ano: 6,
-      carga_na_safra: 1.0,
-      carga_na_entre_safra: 0.25,
-      consumo_medio: 1.7,
-      salario_medio_do_setor: 1293.89,
-      encargos_sociais: 0.99,
-      beneficios: 0.33,
-      periodo_depreciacao_obra_civil: 40,
-      fator_manutencao_obra_civil: 0.005,
-      fator_manutencao_do_maquinario: 0.015,
-      remuneracao_do_capital: 0.1,
-      seguros: 0.2 / 100,
-      margem_de_lucro: 0,
-    },
     todos: [
       { id: 1, text: '...', done: true },
       { id: 2, text: '...', done: false },
@@ -474,6 +542,14 @@ export default new Vuex.Store({
     },
     salario_medio_do_setor(state, value) {
       state.controle.salario_medio_do_setor = value
+    },
+    custo_fixo(state, newItem) {
+      var el = state.custo_fixo.find(item => item.id == newItem.id)
+      el.valor = newItem.valor
+    },
+    custo_variavel(state, newItem) {
+      var el = state.custo_variavel.find(item => item.id == newItem.id)
+      el.valor = newItem.valor
     },
   },
   actions: {
