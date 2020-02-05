@@ -8,45 +8,67 @@ export default new Vuex.Store({
     custo_fixo: [
       {
         id: 1,
+        formula: 'cf_salarios',
         nome: 'Salarios',
         valor: 0,
       },
       {
         id: 2,
+        formula: 'cf_depreciacao_das_instalacoes',
         nome: 'Depreciação das instalações',
         valor: 0,
       },
       {
         id: 3,
+        formula: 'cf_manutecao_das_instalacoes',
         nome: 'Manutenção das Instalções',
         valor: 0,
       },
       {
         id: 4,
+        formula: 'cf_depreciacao_maquinario',
         nome: 'Depreciação do maquinário',
         valor: 0,
       },
       {
         id: 5,
+        formula: 'cf_seguros',
         nome: 'Seguros',
         valor: 0,
       },
       {
         id: 6,
+        formula: 'cf_custo_de_oportunidade',
         nome: 'Custo de Oportunidade',
         valor: 0,
       },
       {
         id: 7,
-        nome: 'Custo Fixo',
+        formula: 'cf_total_custo_fixo',
+        nome: 'Total Custo Fixo',
         valor: 0,
       },
     ],
     custo_variavel: [
-      { id: 1, nome: 'Mão de obra', valor: 0 },
-      { id: 2, nome: 'Energia elétrica', valor: 0 },
-      { id: 3, nome: 'Manutenção de maquinário', valor: 0 },
-      { id: 4, nome: 'Total de custo variável', valor: 0 },
+      { id: 1, formula: 'cv_mao_de_obra', nome: 'Mão de obra', valor: 0 },
+      {
+        id: 2,
+        formula: 'cv_energia_eletrica',
+        nome: 'Energia elétrica',
+        valor: 0,
+      },
+      {
+        id: 3,
+        formula: 'cv_manutencao_maquinario',
+        nome: 'Manutenção de maquinário',
+        valor: 0,
+      },
+      {
+        id: 4,
+        formula: 'cv_total_custo_variavel',
+        nome: 'Total de custo variável',
+        valor: 0,
+      },
     ],
 
     equipamento_transbordo: [
@@ -150,213 +172,225 @@ export default new Vuex.Store({
         depreciacao: 122301,
       },
     ],
-    controle: [
+
+    variaveis_de_controle: [
       {
         id: 1,
+        formula: 'ctrl_capacidade_estatica',
         nome: 'Capacidade estatica',
         valor: 36000,
         currency: false,
       },
       {
         id: 2,
+        formula: 'ctrl_tombamento_medio_por_hora',
         nome: 'Tombamento médio por hora',
         valor: 0,
         currency: false,
       },
       {
         id: 3,
+        formula: 'ctrl_disponibilidade_por_tombador',
         nome: 'Disponibilidade por tombador',
         valor: 0.85,
         currency: false,
       },
       {
         id: 4,
+        formula: 'ctrl_disponibilidade_de_caminhoes_no_patio',
         nome: 'Disponibilidade de caminhões no pátio',
         valor: 0.9,
         currency: false,
       },
       {
         id: 5,
+        formula: 'ctrl_tempo_medio_de_armazenagem',
         nome: 'Tempo médio de armazenagem',
         valor: 0.9,
         currency: false,
       },
       {
         id: 6,
+        formula: 'ctrl_horas_de_funcionamento_diario',
         nome: 'Horas de funcionamento diário',
         valor: 24,
         currency: false,
       },
       {
         id: 7,
+        formula: 'ctrl_paradas_para_manutencao_mensal',
         nome: 'Paradas para manutenção (mensal)',
         valor: 0.1,
         currency: false,
       },
       {
         id: 8,
+        formula: 'ctrl_horas_de_funcionamento_mensal',
         nome: 'Horas de funcionamento mensal',
-        valor: 0.1,
+        valor: 0,
         currency: false,
       },
       {
         id: 9,
+        formula: 'ctrl_meses_de_safra_no_ano',
         nome: 'Meses de safra no ano',
         valor: 6,
         currency: false,
       },
       {
         id: 10,
+        formula: 'ctrl_carga_na_safra',
         nome: 'Carga na entressafra',
         valor: 1.0,
         currency: false,
       },
       {
         id: 11,
+        formula: 'ctrl_carga_na_entre_safra',
         nome: 'Carga na entre safra',
         valor: 0.25,
         currency: false,
       },
       {
         id: 12,
+        formula: 'ctrl_giro',
         nome: 'Giro',
         valor: 0,
         currency: false,
       },
       {
         id: 13,
+        formula: 'ctrl_movimentacao',
         nome: 'Movimentação',
         valor: 0,
         currency: false,
       },
       {
         id: 14,
+        formula: 'ctrl_tarifa_energia',
         nome: 'Tarifa de energia',
         valor: 0,
         currency: false,
       },
       {
         id: 15,
+        formula: 'ctrl_consumo_medio',
         nome: 'Consumo médio',
-        valor: 1.7,
+        valor: 0,
         currency: false,
       },
       {
         id: 16,
+        formula: 'ctrl_numero_funcionarios',
         nome: 'Número de funcionários',
         valor: 0,
         currency: false,
       },
       {
         id: 17,
+        formula: 'ctrl_salario_medio_do_setor',
         nome: 'Salário médio do setor',
-        valor: 1293.89,
-        currency: false,
+        valor: 0,
+        currency: true,
       },
       {
         id: 18,
+        formula: 'ctrl_encargos_sociais',
         nome: 'Encargos Sociais',
         valor: 0.99,
         currency: false,
       },
       {
         id: 19,
+        formula: 'ctrl_beneficios',
         nome: 'Beneficios',
         valor: 0.33,
         currency: false,
       },
       {
         id: 20,
+        formula: 'ctrl_instalacoes',
         nome: 'Instalações',
+        valor: 0,
+        currency: true,
+      },
+      {
+        id: 21,
+        formula: 'ctrl_periodo_depreciacao_obra_civil',
+        nome: 'Período de Depreciação Obra Civil',
         valor: 0,
         currency: false,
       },
       {
-        id: 21,
-        nome: 'Período de Depreciação Obra Civil',
-        valor: 40,
-        currency: false,
-      },
-      {
         id: 22,
+        formula: 'ctrl_fator_manutencao_obra_civil',
         nome: 'Fator de Manutenção da Obra Civil',
-        valor: 0.005,
+        valor: 0,
         currency: false,
       },
       {
         id: 23,
+        formula: 'ctrl_fator_manutencao_do_maquinario',
         nome: 'Fator de Manutenção do maquinário',
-        valor: 0.015,
+        valor: 0,
         currency: false,
       },
       {
         id: 24,
+        formula: 'ctrl_remuneracao_do_capital',
         nome: 'Remuneração do capital',
         valor: 0.1,
         currency: false,
       },
       {
         id: 25,
+        formula: 'ctrl_seguros',
         nome: 'Seguros',
-        valor: 0.002,
+        valor: 0,
         currency: false,
       },
       {
         id: 26,
+        formula: 'ctrl_margem_de_lucro',
         nome: 'Margem de lucro',
         valor: 0,
         currency: false,
       },
       {
         id: 27,
+        formula: 'ctrl_tarifa_limpa',
         nome: 'Tarifa Limpa',
         valor: 0,
         currency: false,
       },
       {
         id: 28,
+        formula: 'ctrl_lucro',
         nome: 'Lucro',
         valor: 0,
         currency: false,
       },
       {
         id: 29,
+        formula: 'ctrl_tributos',
         nome: 'Tributos',
         valor: 0,
         currency: false,
       },
       {
         id: 30,
+        formula: 'ctrl_tarifa',
         nome: 'Tarifa',
         valor: 0,
         currency: false,
       },
     ],
 
-    /* controle: {
-      capacidade_estatica: 36000,
-      disponibilidade_por_tombador: 0.85,
-      disponibilidade_de_caminhoes_no_patio: 0.9,
-      horas_de_funcionamento_diario: 24,
-      paradas_para_manutencao_mensal: 0.1,
-      meses_de_safra_no_ano: 6,
-      carga_na_safra: 1.0,
-      carga_na_entre_safra: 0.25,
-      consumo_medio: 1.7,
-      salario_medio_do_setor: 1293.89,
-      encargos_sociais: 0.99,
-      beneficios: 0.33,
-      periodo_depreciacao_obra_civil: 40,
-      fator_manutencao_obra_civil: 0.005,
-      fator_manutencao_do_maquinario: 0.015,
-      remuneracao_do_capital: 0.1,
-      seguros: 0.2 / 100,
-      margem_de_lucro: 0,
-    }, */
     inflacao: {
       periodo: 'jun/13 - jun/14',
       valor: 1.0658,
     },
+
     equipamentos_instalacoes: [
       {
         id: 1,
@@ -487,6 +521,7 @@ export default new Vuex.Store({
         total: 0,
       },
     ],
+
     tributos: [
       {
         nome: 'pis',
@@ -509,145 +544,38 @@ export default new Vuex.Store({
         valor: 0.05,
       },
     ],
-
-    todos: [
-      { id: 1, text: '...', done: true },
-      { id: 2, text: '...', done: false },
-    ],
-    totalTvCount: 10,
   },
   getters: {
-    ctrl_total_tributos: state => {
-      var sum = 0
-      state.tributos.forEach(item => {
-        sum = sum + item.valor
-      })
-
-      return sum
+    getCustosFixos: state => {
+      return state.custo_fixo
     },
-    ctrl_tombamento_medio_por_hora: state => {
-      return Math.round(
-        state.equipamento_transbordo[4].quantidade *
-          40 *
-          6 *
-          state.controle.disponibilidade_por_tombador *
-          state.controle.disponibilidade_de_caminhoes_no_patio,
-      )
+    getCustosVariaveis: state => {
+      return state.custo_variavel
     },
-    ctrl_tempo_medio_de_armazenagem: (state, getters) => {
-      return Math.round(365 / getters.ctrl_giro)
+    getVariaveisControle: state => {
+      return state.variaveis_de_controle
     },
-    ctrl_horas_de_funcionamento_mensal: state => {
-      return (
-        state.controle.horas_de_funcionamento_diario *
-        30 *
-        (1 - state.controle.paradas_para_manutencao_mensal)
-      )
-    },
-    ctrl_giro: (state, getters) => {
-      return getters.ctrl_movimentacao / state.controle.capacidade_estatica
-    },
-    ctrl_movimentacao: (state, getters) => {
-      return (
-        getters.ctrl_tombamento_medio_por_hora *
-          getters.ctrl_horas_de_funcionamento_mensal *
-          state.controle.meses_de_safra_no_ano *
-          state.controle.carga_na_safra +
-        getters.ctrl_tombamento_medio_por_hora *
-          getters.ctrl_horas_de_funcionamento_mensal *
-          (12 - state.controle.meses_de_safra_no_ano) *
-          state.controle.carga_na_entre_safra
-      )
-    },
-    ctrl_tarifa_energia: state => {
-      return (
-        Math.round(
-          state.equipamentos_instalacoes[14].valor *
-            state.inflacao.valor *
-            2 *
-            100,
-        ) / 100
-      )
-    },
-    ctrl_numero_funcionarios: (state, getters) => {
-      return Math.round(25 + (0.055 * getters.ctrl_movimentacao) / 1000)
-    },
-    ctrl_instalacoes: state => {
-      return (
-        500 * state.controle.capacidade_estatica +
-        state.equipamentos_instalacoes[11].total +
-        state.equipamentos_instalacoes[12].total
-      )
-    },
-    ctrl_tarifa_limpa: (state, getters) => {
-      //console.log(getters.cv_total_custo_variavel)
-      return (
-        (getters.cv_total_custo_variavel + getters.cf_total_custo_fixo) /
-        getters.ctrl_movimentacao
-      )
-    },
-    ctrl_lucro: (state, getters) => {
-      return state.controle.margem_de_lucro * getters.ctrl_tarifa_limpa
-    },
-    ctrl_tributos: (state, getters) => {
-      return (
-        getters.ctrl_total_tributos *
-        (getters.ctrl_lucro + getters.ctrl_tarifa_limpa)
-      )
-    },
-    ctrl_tarifa: (state, getters) => {
-      return (
-        Math.round(
-          (getters.ctrl_tributos +
-            getters.ctrl_lucro +
-            getters.ctrl_tarifa_limpa) *
-            100,
-        ) / 100
-      )
-    },
-    // Custo Variável
-    cv_energia_eletrica: (state, getters) => {
-      /* console.log(getters.ctrl_movimentacao)
-      console.log(getters.ctrl_tarifa_energia)
-      console.log(state.controle.consumo_medio) */
-
-      return (
-        getters.ctrl_movimentacao *
-        getters.ctrl_tarifa_energia *
-        state.controle.consumo_medio
-      )
-    },
-    cv_manutencao_maquinario: (state, getters) => {
-      return (
-        state.controle.fator_manutencao_do_maquinario *
-        getters.eqt_total_valor_corrigido
-      )
-    },
-    cv_total_custo_variavel: (state, getters) => {
-      return (
-        state.custo_variavel.mao_de_obra +
-        getters.cv_energia_eletrica +
-        getters.cv_manutencao_maquinario
-      )
-    },
-
     // custo fixo
     cf_salarios: (state, getters) => {
       return (
         getters.ctrl_numero_funcionarios *
-        state.controle.salario_medio_do_setor *
-        (1 + state.controle.encargos_sociais + state.controle.beneficios) *
+        getters.getVc('ctrl_salario_medio_do_setor').valor *
+        (1 +
+          getters.getVc('ctrl_encargos_sociais').valor +
+          getters.getVc('ctrl_beneficios').valor) *
         13
       )
     },
     cf_depreciacao_das_instalacoes: (state, getters) => {
       return (
-        getters.ctrl_instalacoes / state.controle.periodo_depreciacao_obra_civil
+        getters.getVc('ctrl_instalacoes').valor /
+        getters.getVc('ctrl_periodo_depreciacao_obra_civil').valor
       )
     },
     cf_manutecao_das_instalacoes: (state, getters) => {
       return (
-        getters.ctrl_instalacoes * state.controle.fator_manutencao_obra_civil
+        getters.getVc('ctrl_instalacoes').valor *
+        getters.getVc('ctrl_fator_manutencao_obra_civil').valor
       )
     },
     cf_depreciacao_maquinario: (state, getters) => {
@@ -655,13 +583,13 @@ export default new Vuex.Store({
     },
     cf_seguros: (state, getters) => {
       return (
-        state.controle.seguros *
+        getters.getVc('ctrl_seguros').valor *
         (getters.eqt_total_valor_corrigido + getters.ctrl_instalacoes)
       )
     },
     cf_custo_de_oportunidade: (state, getters) => {
       return (
-        state.controle.remuneracao_do_capital *
+        getters.getVc('ctrl_remuneracao_do_capital').valor *
         (getters.eqt_total_valor_corrigido + getters.ctrl_instalacoes)
       )
     },
@@ -675,6 +603,207 @@ export default new Vuex.Store({
         getters.cf_custo_de_oportunidade
       )
     },
+
+    // Custo Variável
+    cv_mao_de_obra: () => {
+      return 0
+    },
+    cv_energia_eletrica: (state, getters) => {
+      return (
+        getters.getVc('ctrl_movimentacao').valor *
+        getters.getVc('ctrl_tarifa_energia').valor *
+        getters.ctrl_consumo_medio
+      )
+    },
+    cv_manutencao_maquinario: (state, getters) => {
+      return (
+        getters.getVc('ctrl_fator_manutencao_do_maquinario').valor *
+        getters.eqt_total_valor_corrigido
+      )
+    },
+    cv_total_custo_variavel: (state, getters) => {
+      return (
+        getters.getCv('cv_mao_de_obra').valor +
+        getters.getCv('cv_energia_eletrica').valor +
+        getters.getCv('cv_manutencao_maquinario').valor
+      )
+    },
+
+    //Variaveis de controle
+
+    ctrl_capacidade_estatica: (state, getters) => {
+      return getters.getVc('ctrl_capacidade_estatica').valor
+    },
+    ctrl_tombamento_medio_por_hora: (state, getters) => {
+      return Math.round(
+        state.equipamento_transbordo[4].quantidade *
+          40 *
+          6 *
+          getters.getVc('ctrl_disponibilidade_por_tombador').valor *
+          getters.getVc('ctrl_disponibilidade_de_caminhoes_no_patio').valor,
+      )
+    },
+
+    ctrl_disponibilidade_por_tombador: () => {
+      return 0.85
+    },
+    ctrl_disponibilidade_de_caminhoes_no_patio: () => {
+      return 0.9
+    },
+
+    ctrl_tempo_medio_de_armazenagem: (state, getters) => {
+      return Math.round(365 / getters.getVc('ctrl_giro').valor)
+    },
+    ctrl_horas_de_funcionamento_diario: () => {
+      return 24
+    },
+    ctrl_paradas_para_manutencao_mensal: () => {
+      return 0.1
+    },
+
+    ctrl_horas_de_funcionamento_mensal: (state, getters) => {
+      return (
+        getters.getVc('ctrl_horas_de_funcionamento_diario').valor *
+        30 *
+        (1 - getters.getVc('ctrl_paradas_para_manutencao_mensal').valor)
+      )
+    },
+
+    ctrl_meses_de_safra_no_ano: () => {
+      return 6
+    },
+    ctrl_carga_na_safra: () => {
+      return 1.0
+    },
+    ctrl_carga_na_entre_safra: () => {
+      return 0.25
+    },
+    ctrl_giro: (state, getters) => {
+      return (
+        getters.getVc('ctrl_movimentacao').valor /
+        getters.getVc('ctrl_capacidade_estatica').valor
+      )
+    },
+
+    ctrl_movimentacao: (state, getters) => {
+      var tt =
+        getters.getVc('ctrl_tombamento_medio_por_hora').valor *
+          getters.getVc('ctrl_horas_de_funcionamento_mensal').valor *
+          getters.getVc('ctrl_meses_de_safra_no_ano').valor *
+          getters.getVc('ctrl_carga_na_safra').valor +
+        getters.getVc('ctrl_tombamento_medio_por_hora').valor *
+          getters.getVc('ctrl_horas_de_funcionamento_mensal').valor *
+          (12 - getters.getVc('ctrl_meses_de_safra_no_ano').valor) *
+          getters.getVc('ctrl_carga_na_entre_safra').valor
+
+      return tt
+    },
+
+    ctrl_tarifa_energia: state => {
+      return (
+        Math.round(
+          state.equipamentos_instalacoes[14].valor *
+            state.inflacao.valor *
+            2 *
+            100,
+        ) / 100
+      )
+    },
+
+    ctrl_consumo_medio: () => {
+      return Number(1.7)
+    },
+
+    ctrl_numero_funcionarios: (state, getters) => {
+      return Math.round(
+        25 + (0.055 * getters.getVc('ctrl_movimentacao').valor) / 1000,
+      )
+    },
+
+    ctrl_salario_medio_do_setor: () => {
+      return 1293.89
+    },
+    ctrl_encargos_sociais: () => {
+      return 0.99
+    },
+    ctrl_beneficios: () => {
+      return 0.33
+    },
+    ctrl_instalacoes: (state, getters) => {
+      return (
+        500 * getters.getVc('ctrl_capacidade_estatica').valor +
+        state.equipamentos_instalacoes[11].total +
+        state.equipamentos_instalacoes[12].total
+      )
+    },
+
+    ctrl_periodo_depreciacao_obra_civil: () => {
+      return 40
+    },
+    ctrl_fator_manutencao_obra_civil: () => {
+      return 0.005
+    },
+    ctrl_fator_manutencao_do_maquinario: () => {
+      return 0.015
+    },
+    ctrl_remuneracao_do_capital: () => {
+      return 0.1
+    },
+    ctrl_seguros: () => {
+      return 0.002
+    },
+    ctrl_margem_de_lucro: () => {
+      return 0
+    },
+
+    ctrl_tarifa_limpa: (state, getters) => {
+      return (
+        Math.round(
+          ((getters.cv_total_custo_variavel + getters.cf_total_custo_fixo) /
+            getters.getVc('ctrl_movimentacao').valor) *
+            100,
+        ) / 100
+      )
+    },
+
+    ctrl_lucro: (state, getters) => {
+      return (
+        getters.getVc('ctrl_margem_de_lucro').valor *
+        getters.getVc('ctrl_tarifa_limpa').valor
+      )
+    },
+
+    ctrl_tributos: (state, getters) => {
+      return (
+        Math.round(
+          getters.ctrl_total_tributos *
+            (getters.getVc('ctrl_lucro').valor +
+              getters.getVc('ctrl_tarifa_limpa').valor) *
+            1000,
+        ) / 1000
+      )
+    },
+
+    ctrl_tarifa: (state, getters) => {
+      return (
+        Math.round(
+          (getters.getVc('ctrl_tributos').valor +
+            getters.getVc('ctrl_lucro').valor +
+            getters.getVc('ctrl_tarifa_limpa').valor) *
+            100,
+        ) / 100
+      )
+    },
+
+    ctrl_total_tributos: state => {
+      var sum = 0
+      state.tributos.forEach(item => {
+        sum = sum + item.valor
+      })
+
+      return sum
+    },
+
     eqt_total_valor_corrigido: state => {
       var sum = 0
       state.equipamento_transbordo.forEach(item => {
@@ -691,6 +820,16 @@ export default new Vuex.Store({
 
       return sum
     },
+    getVc: state => formula => {
+      return state.variaveis_de_controle.find(item => {
+        if (item.formula == formula) return item
+      })
+    },
+    getCv: state => formula => {
+      return state.custo_variavel.find(item => {
+        if (item.formula == formula) return item
+      })
+    },
   },
   mutations: {
     capacidade_estatica(state, value) {
@@ -701,11 +840,18 @@ export default new Vuex.Store({
     },
     custo_fixo(state, newItem) {
       var el = state.custo_fixo.find(item => item.id == newItem.id)
-      el.valor = newItem.valor
+      el.valor = newItem.valor || 0
+      //console.log(el.nome + ' Atualizado para: ' + newItem.valor)
     },
     custo_variavel(state, newItem) {
       var el = state.custo_variavel.find(item => item.id == newItem.id)
-      el.valor = newItem.valor
+      el.valor = newItem.valor || 0
+      //console.log(el.nome + ' Atualizado para: ' + newItem.valor)
+    },
+    variaveis_de_controle(state, newItem) {
+      //if (isNaN(newItem.valor)) return 0
+      var el = state.variaveis_de_controle.find(item => item.id == newItem.id)
+      el.valor = newItem.valor || 0
     },
   },
   actions: {

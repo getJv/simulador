@@ -27,6 +27,7 @@
 
 <script>
 export default {
+  name: 'Tributacao',
   computed: {},
   data() {
     return {
