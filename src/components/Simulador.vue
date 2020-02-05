@@ -4,7 +4,9 @@
       <v-toolbar-title>Simulador de Custos Transbordo</v-toolbar-title>
     </v-toolbar>
     <v-card-text>
-      <p></p>
+      <p>
+        <v-btn @click="recalcula">recalcula</v-btn>
+      </p>
       <v-row align="center">
         <v-col cols="12">
           <p class="text-center text-uppercase headline">Variáveis básicas</p>
@@ -64,8 +66,14 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'Simulador',
   methods: {
+    recalcula() {
+      this.gsa_rodo_ferro_variaveis_de_controle()
+      this.gsa_rodo_ferro_custo_variavel()
+      this.gsa_rodo_ferro_custo_fixo()
+      this.gsa_rodo_ferro_variaveis_de_controle()
+    },
     gsa_rodo_ferro_custo_fixo() {
-      this.$store.getters.getCustosFixos.forEach(item => {
+      this.$store.getters.getAllCustosFixos.forEach(item => {
         this.$store.commit('custo_fixo', {
           id: item.id,
           valor: this[item.formula],
@@ -73,7 +81,7 @@ export default {
       })
     },
     gsa_rodo_ferro_custo_variavel() {
-      this.$store.getters.getCustosVariaveis.forEach(item => {
+      this.$store.getters.getAllCustosVariaveis.forEach(item => {
         this.$store.commit('custo_variavel', {
           id: item.id,
           valor: this[item.formula],
@@ -81,7 +89,7 @@ export default {
       })
     },
     gsa_rodo_ferro_variaveis_de_controle() {
-      this.$store.getters.getVariaveisControle.forEach(item => {
+      this.$store.getters.getAllVariaveisControle.forEach(item => {
         this.$store.commit('variaveis_de_controle', {
           id: item.id,
           valor: this[item.formula],
@@ -90,10 +98,7 @@ export default {
     },
   },
   created() {
-    this.gsa_rodo_ferro_variaveis_de_controle()
-    this.gsa_rodo_ferro_custo_variavel()
-    this.gsa_rodo_ferro_custo_fixo()
-    this.gsa_rodo_ferro_variaveis_de_controle()
+    this.recalcula()
   },
   computed: {
     ...mapGetters([
@@ -141,23 +146,6 @@ export default {
       'ctrl_tributos',
       'ctrl_tarifa',
     ]),
-
-    /*  capacidade_estatica: {
-      get() {
-        return this.$store.state.controle.capacidade_estatica
-      },
-      set(value) {
-        this.$store.commit('capacidade_estatica', value)
-      },
-    },
-    salario_medio_do_setor: {
-      get() {
-        return this.$store.state.controle.salario_medio_do_setor
-      },
-      set(value) {
-        this.$store.commit('salario_medio_do_setor', value)
-      },
-    }, */
   },
 
   data() {

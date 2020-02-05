@@ -8,44 +8,44 @@ export default new Vuex.Store({
     custo_fixo: [
       {
         id: 1,
+        formula: 'cf_total_custo_fixo',
+        nome: 'Total Custo Fixo',
+        valor: 0,
+      },
+      {
+        id: 2,
         formula: 'cf_salarios',
         nome: 'Salarios',
         valor: 0,
       },
       {
-        id: 2,
+        id: 3,
         formula: 'cf_depreciacao_das_instalacoes',
         nome: 'Depreciação das instalações',
         valor: 0,
       },
       {
-        id: 3,
+        id: 4,
         formula: 'cf_manutecao_das_instalacoes',
         nome: 'Manutenção das Instalções',
         valor: 0,
       },
       {
-        id: 4,
+        id: 5,
         formula: 'cf_depreciacao_maquinario',
         nome: 'Depreciação do maquinário',
         valor: 0,
       },
       {
-        id: 5,
+        id: 6,
         formula: 'cf_seguros',
         nome: 'Seguros',
         valor: 0,
       },
       {
-        id: 6,
+        id: 7,
         formula: 'cf_custo_de_oportunidade',
         nome: 'Custo de Oportunidade',
-        valor: 0,
-      },
-      {
-        id: 7,
-        formula: 'cf_total_custo_fixo',
-        nome: 'Total Custo Fixo',
         valor: 0,
       },
     ],
@@ -546,19 +546,19 @@ export default new Vuex.Store({
     ],
   },
   getters: {
-    getCustosFixos: state => {
+    getAllCustosFixos: state => {
       return state.custo_fixo
     },
-    getCustosVariaveis: state => {
+    getAllCustosVariaveis: state => {
       return state.custo_variavel
     },
-    getVariaveisControle: state => {
+    getAllVariaveisControle: state => {
       return state.variaveis_de_controle
     },
     // custo fixo
     cf_salarios: (state, getters) => {
       return (
-        getters.ctrl_numero_funcionarios *
+        getters.getVc('ctrl_numero_funcionarios').valor *
         getters.getVc('ctrl_salario_medio_do_setor').valor *
         (1 +
           getters.getVc('ctrl_encargos_sociais').valor +
@@ -584,24 +584,26 @@ export default new Vuex.Store({
     cf_seguros: (state, getters) => {
       return (
         getters.getVc('ctrl_seguros').valor *
-        (getters.eqt_total_valor_corrigido + getters.ctrl_instalacoes)
+        (getters.eqt_total_valor_corrigido +
+          getters.getVc('ctrl_instalacoes').valor)
       )
     },
     cf_custo_de_oportunidade: (state, getters) => {
       return (
         getters.getVc('ctrl_remuneracao_do_capital').valor *
-        (getters.eqt_total_valor_corrigido + getters.ctrl_instalacoes)
+        (getters.eqt_total_valor_corrigido +
+          getters.getVc('ctrl_instalacoes').valor)
       )
     },
     cf_total_custo_fixo: (state, getters) => {
-      return (
-        getters.cf_salarios +
-        getters.cf_depreciacao_das_instalacoes +
-        getters.cf_manutecao_das_instalacoes +
-        getters.cf_depreciacao_maquinario +
-        getters.cf_seguros +
-        getters.cf_custo_de_oportunidade
-      )
+      var total = 0
+      var itens = state.custo_fixo.slice(0)
+      itens.shift()
+      itens.forEach(item => {
+        total += getters[item.formula]
+      })
+
+      return total
     },
 
     // Custo Variável
@@ -832,24 +834,15 @@ export default new Vuex.Store({
     },
   },
   mutations: {
-    capacidade_estatica(state, value) {
-      state.controle.capacidade_estatica = value
-    },
-    salario_medio_do_setor(state, value) {
-      state.controle.salario_medio_do_setor = value
-    },
     custo_fixo(state, newItem) {
       var el = state.custo_fixo.find(item => item.id == newItem.id)
       el.valor = newItem.valor || 0
-      //console.log(el.nome + ' Atualizado para: ' + newItem.valor)
     },
     custo_variavel(state, newItem) {
       var el = state.custo_variavel.find(item => item.id == newItem.id)
       el.valor = newItem.valor || 0
-      //console.log(el.nome + ' Atualizado para: ' + newItem.valor)
     },
     variaveis_de_controle(state, newItem) {
-      //if (isNaN(newItem.valor)) return 0
       var el = state.variaveis_de_controle.find(item => item.id == newItem.id)
       el.valor = newItem.valor || 0
     },
