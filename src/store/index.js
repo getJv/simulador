@@ -8,45 +8,51 @@ export default new Vuex.Store({
     custo_fixo: [
       {
         id: 1,
-        formula: 'cf_total_custo_fixo',
-        nome: 'Total Custo Fixo',
-        valor: 0,
-      },
-      {
-        id: 2,
         formula: 'cf_salarios',
         nome: 'Salarios',
         valor: 0,
+        epl: true,
+        currency: true,
       },
       {
-        id: 3,
+        id: 2,
         formula: 'cf_depreciacao_das_instalacoes',
         nome: 'Depreciação das instalações',
         valor: 0,
+        epl: true,
+        currency: true,
       },
       {
-        id: 4,
+        id: 3,
         formula: 'cf_manutecao_das_instalacoes',
         nome: 'Manutenção das Instalções',
         valor: 0,
+        epl: true,
+        currency: true,
       },
       {
-        id: 5,
+        id: 4,
         formula: 'cf_depreciacao_maquinario',
         nome: 'Depreciação do maquinário',
         valor: 0,
+        epl: true,
+        currency: true,
       },
       {
-        id: 6,
+        id: 5,
         formula: 'cf_seguros',
         nome: 'Seguros',
         valor: 0,
+        epl: true,
+        currency: true,
       },
       {
-        id: 7,
+        id: 6,
         formula: 'cf_custo_de_oportunidade',
         nome: 'Custo de Oportunidade',
         valor: 0,
+        epl: true,
+        currency: true,
       },
     ],
     custo_variavel: [
@@ -546,6 +552,10 @@ export default new Vuex.Store({
     ],
   },
   getters: {
+    arredonda: () => valor => {
+      return Math.round(valor * 100) / 100
+    },
+
     custo_fixo: state => {
       return fieldName => {
         //console.log('from store: ' + fieldName)
@@ -564,53 +574,51 @@ export default new Vuex.Store({
     },
     // custo fixo
     cf_salarios: (state, getters) => {
-      return (
+      return getters.arredonda(
         getters.getVc('ctrl_numero_funcionarios').valor *
-        getters.getVc('ctrl_salario_medio_do_setor').valor *
-        (1 +
-          getters.getVc('ctrl_encargos_sociais').valor +
-          getters.getVc('ctrl_beneficios').valor) *
-        13
+          getters.getVc('ctrl_salario_medio_do_setor').valor *
+          (1 +
+            getters.getVc('ctrl_encargos_sociais').valor +
+            getters.getVc('ctrl_beneficios').valor) *
+          13,
       )
     },
     cf_depreciacao_das_instalacoes: (state, getters) => {
-      return (
+      return getters.arredonda(
         getters.getVc('ctrl_instalacoes').valor /
-        getters.getVc('ctrl_periodo_depreciacao_obra_civil').valor
+          getters.getVc('ctrl_periodo_depreciacao_obra_civil').valor,
       )
     },
     cf_manutecao_das_instalacoes: (state, getters) => {
-      return (
+      return getters.arredonda(
         getters.getVc('ctrl_instalacoes').valor *
-        getters.getVc('ctrl_fator_manutencao_obra_civil').valor
+          getters.getVc('ctrl_fator_manutencao_obra_civil').valor,
       )
     },
     cf_depreciacao_maquinario: (state, getters) => {
-      return getters.eqt_total_depreciacao
+      return getters.arredonda(getters.eqt_total_depreciacao)
     },
     cf_seguros: (state, getters) => {
-      return (
+      return getters.arredonda(
         getters.getVc('ctrl_seguros').valor *
-        (getters.eqt_total_valor_corrigido +
-          getters.getVc('ctrl_instalacoes').valor)
+          (getters.eqt_total_valor_corrigido +
+            getters.getVc('ctrl_instalacoes').valor),
       )
     },
     cf_custo_de_oportunidade: (state, getters) => {
-      return (
+      return getters.arredonda(
         getters.getVc('ctrl_remuneracao_do_capital').valor *
-        (getters.eqt_total_valor_corrigido +
-          getters.getVc('ctrl_instalacoes').valor)
+          (getters.eqt_total_valor_corrigido +
+            getters.getVc('ctrl_instalacoes').valor),
       )
     },
     cf_total_custo_fixo: (state, getters) => {
       var total = 0
-      var itens = state.custo_fixo.slice(0)
-      itens.shift()
-      itens.forEach(item => {
-        total += getters[item.formula]
+      state.custo_fixo.forEach(item => {
+        total += Number(item.valor)
       })
 
-      return total
+      return getters.arredonda(total)
     },
 
     // Custo Variável
@@ -841,10 +849,40 @@ export default new Vuex.Store({
     },
   },
   mutations: {
-    custo_fixo(state, newItem) {
-      var el = state.custo_fixo.find(item => item.id == newItem.id)
-      el.valor = newItem.valor || 0
+    addCustoFixo(state, newItem) {
+      state.custo_fixo.push({
+        id: state.custo_fixo.length + 1,
+        formula: newItem.nome.toLowerCase().replace(' ', '-'),
+        nome: newItem.nome,
+        valor: newItem.valor,
+        currency: false,
+      })
     },
+
+    removeCustoFixo(state, index) {
+      state.custo_fixo.splice(index, 1)
+    },
+
+    custoFixoByFieldName(state, newItem) {
+      var indexOfItem = 0
+      var el = state.custo_fixo.find(item => {
+        if (item.formula == newItem.formula) {
+          return item
+        }
+        indexOfItem = indexOfItem + 1
+      })
+
+      Vue.set(state.custo_fixo, indexOfItem, {
+        id: el.id,
+        formula: el.formula || el.nome.toLowerCase().replace(' ', '-'),
+        nome: el.nome,
+        valor: newItem.valor,
+        epl: el.epl || false,
+        currency: el.currency,
+      })
+    },
+
+    //Não tratado ainda
     custo_variavel(state, newItem) {
       var el = state.custo_variavel.find(item => item.id == newItem.id)
       el.valor = newItem.valor || 0

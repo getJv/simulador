@@ -74,8 +74,8 @@ export default {
     },
     gsa_rodo_ferro_custo_fixo() {
       this.$store.getters.getAllCustosFixos.forEach(item => {
-        this.$store.commit('custo_fixo', {
-          id: item.id,
+        this.$store.commit('custoFixoByFieldName', {
+          formula: item.formula,
           valor: this[item.formula],
         })
       })
@@ -98,7 +98,12 @@ export default {
     },
   },
   created() {
-    //this.recalcula()
+    this.recalcula()
+    /* this.gsa_rodo_ferro_variaveis_de_controle()
+    this.$store.commit('custoFixoByFieldName', {
+      formula: 'cf_salarios',
+      valor: this['cf_salarios'],
+    }) */
   },
   computed: {
     ...mapGetters([
