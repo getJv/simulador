@@ -98,7 +98,7 @@ export default {
     },
   },
   created() {
-    this.recalcula()
+    //this.recalcula()
   },
   computed: {
     ...mapGetters([

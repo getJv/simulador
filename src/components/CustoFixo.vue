@@ -1,6 +1,7 @@
 <template>
   <v-card flat>
     <v-card-text>
+      {{ custo_fixo }}
       <v-simple-table>
         <template v-slot:default>
           <thead>
@@ -13,10 +14,15 @@
           <tbody>
             <tr v-for="item in itens" :key="item.id">
               <td>{{ item.nome }}</td>
-              <td>{{ item.valor | currency }}</td>
               <td>
-                <v-btn @click="teste(item)"></v-btn>
+                <v-text-field
+                  :ref="item.formula"
+                  :id="item.formula"
+                  :value="custo_fixo(item.formula).valor"
+                  @input="updateMessage"
+                />
               </td>
+              <td></td>
             </tr>
           </tbody>
         </template>
@@ -26,16 +32,25 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'CustoFixo',
   methods: {
-    teste(item) {
-      this.$store.commit('custo_fixo', {
-        id: item.id,
-        valor: 10,
-      })
-      this.$store.getters.cf_total_custo_fixo
+    updateMessage() {
+      console.log(this.$refs)
     },
+  },
+  computed: {
+    //https://vuex.vuejs.org/guide/forms.html
+    ...mapGetters(['custo_fixo']),
+    /* custo_fixo: {
+      get() {
+        return this.$store.getters.custo_fixo
+      },
+      set(value) {""
+        this.$store.commit('custo_fixo', value)
+      },
+    }, */
   },
   mounted() {
     this.itens = this.$store.state.custo_fixo

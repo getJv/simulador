@@ -546,6 +546,13 @@ export default new Vuex.Store({
     ],
   },
   getters: {
+    custo_fixo: state => {
+      return fieldName => {
+        //console.log('from store: ' + fieldName)
+        return state.custo_fixo.find(item => item.formula === fieldName)
+      }
+    },
+
     getAllCustosFixos: state => {
       return state.custo_fixo
     },
