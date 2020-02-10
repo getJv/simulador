@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    pessoa: [{ nome: 'jhonatan' }, { nome: 'maria' }],
     custo_fixo: [
       {
         id: 1,
@@ -191,6 +192,7 @@ export default new Vuex.Store({
         nome: 'Capacidade estatica',
         valor: 36000,
         currency: false,
+        epl: true,
       },
       {
         id: 2,
@@ -198,6 +200,7 @@ export default new Vuex.Store({
         nome: 'Tombamento médio por hora',
         valor: 0,
         currency: false,
+        epl: true,
       },
       {
         id: 3,
@@ -205,6 +208,7 @@ export default new Vuex.Store({
         nome: 'Disponibilidade por tombador',
         valor: 0.85,
         currency: false,
+        epl: true,
       },
       {
         id: 4,
@@ -212,6 +216,7 @@ export default new Vuex.Store({
         nome: 'Disponibilidade de caminhões no pátio',
         valor: 0.9,
         currency: false,
+        epl: true,
       },
       {
         id: 5,
@@ -219,6 +224,7 @@ export default new Vuex.Store({
         nome: 'Tempo médio de armazenagem',
         valor: 0.9,
         currency: false,
+        epl: true,
       },
       {
         id: 6,
@@ -226,6 +232,7 @@ export default new Vuex.Store({
         nome: 'Horas de funcionamento diário',
         valor: 24,
         currency: false,
+        epl: true,
       },
       {
         id: 7,
@@ -233,6 +240,7 @@ export default new Vuex.Store({
         nome: 'Paradas para manutenção (mensal)',
         valor: 0.1,
         currency: false,
+        epl: true,
       },
       {
         id: 8,
@@ -240,6 +248,7 @@ export default new Vuex.Store({
         nome: 'Horas de funcionamento mensal',
         valor: 0,
         currency: false,
+        epl: true,
       },
       {
         id: 9,
@@ -247,13 +256,15 @@ export default new Vuex.Store({
         nome: 'Meses de safra no ano',
         valor: 6,
         currency: false,
+        epl: true,
       },
       {
         id: 10,
         formula: 'ctrl_carga_na_safra',
-        nome: 'Carga na entressafra',
+        nome: 'Carga na safra',
         valor: 1.0,
         currency: false,
+        epl: true,
       },
       {
         id: 11,
@@ -261,6 +272,7 @@ export default new Vuex.Store({
         nome: 'Carga na entre safra',
         valor: 0.25,
         currency: false,
+        epl: true,
       },
       {
         id: 12,
@@ -268,6 +280,7 @@ export default new Vuex.Store({
         nome: 'Giro',
         valor: 0,
         currency: false,
+        epl: true,
       },
       {
         id: 13,
@@ -275,6 +288,7 @@ export default new Vuex.Store({
         nome: 'Movimentação',
         valor: 0,
         currency: false,
+        epl: true,
       },
       {
         id: 14,
@@ -282,6 +296,7 @@ export default new Vuex.Store({
         nome: 'Tarifa de energia',
         valor: 0,
         currency: false,
+        epl: true,
       },
       {
         id: 15,
@@ -289,6 +304,7 @@ export default new Vuex.Store({
         nome: 'Consumo médio',
         valor: 0,
         currency: false,
+        epl: true,
       },
       {
         id: 16,
@@ -296,6 +312,7 @@ export default new Vuex.Store({
         nome: 'Número de funcionários',
         valor: 0,
         currency: false,
+        epl: true,
       },
       {
         id: 17,
@@ -303,6 +320,7 @@ export default new Vuex.Store({
         nome: 'Salário médio do setor',
         valor: 0,
         currency: true,
+        epl: true,
       },
       {
         id: 18,
@@ -310,6 +328,7 @@ export default new Vuex.Store({
         nome: 'Encargos Sociais',
         valor: 0.99,
         currency: false,
+        epl: true,
       },
       {
         id: 19,
@@ -317,6 +336,7 @@ export default new Vuex.Store({
         nome: 'Beneficios',
         valor: 0.33,
         currency: false,
+        epl: true,
       },
       {
         id: 20,
@@ -324,6 +344,7 @@ export default new Vuex.Store({
         nome: 'Instalações',
         valor: 0,
         currency: true,
+        epl: true,
       },
       {
         id: 21,
@@ -331,6 +352,7 @@ export default new Vuex.Store({
         nome: 'Período de Depreciação Obra Civil',
         valor: 0,
         currency: false,
+        epl: true,
       },
       {
         id: 22,
@@ -338,6 +360,7 @@ export default new Vuex.Store({
         nome: 'Fator de Manutenção da Obra Civil',
         valor: 0,
         currency: false,
+        epl: true,
       },
       {
         id: 23,
@@ -345,6 +368,7 @@ export default new Vuex.Store({
         nome: 'Fator de Manutenção do maquinário',
         valor: 0,
         currency: false,
+        epl: true,
       },
       {
         id: 24,
@@ -352,6 +376,7 @@ export default new Vuex.Store({
         nome: 'Remuneração do capital',
         valor: 0.1,
         currency: false,
+        epl: true,
       },
       {
         id: 25,
@@ -359,6 +384,7 @@ export default new Vuex.Store({
         nome: 'Seguros',
         valor: 0,
         currency: false,
+        epl: true,
       },
       {
         id: 26,
@@ -366,8 +392,9 @@ export default new Vuex.Store({
         nome: 'Margem de lucro',
         valor: 0,
         currency: false,
+        epl: true,
       },
-      {
+      /*  {
         id: 27,
         formula: 'ctrl_tarifa_limpa',
         nome: 'Tarifa Limpa',
@@ -394,7 +421,7 @@ export default new Vuex.Store({
         nome: 'Tarifa',
         valor: 0,
         currency: false,
-      },
+      }, */
     ],
 
     inflacao: {
@@ -698,8 +725,8 @@ export default new Vuex.Store({
     ctrl_carga_na_safra: () => {
       return 1.0
     },
-    ctrl_carga_na_entre_safra: () => {
-      return 0.25
+    ctrl_carga_na_entre_safra: (state, getters) => {
+      return getters.getVc('ctrl_carga_na_entre_safra').valor
     },
     ctrl_giro: (state, getters) => {
       return (
@@ -790,18 +817,14 @@ export default new Vuex.Store({
     },
 
     ctrl_lucro: (state, getters) => {
-      return (
-        getters.getVc('ctrl_margem_de_lucro').valor *
-        getters.getVc('ctrl_tarifa_limpa').valor
-      )
+      return getters.ctrl_margem_de_lucro * getters.ctrl_tarifa_limpa
     },
 
     ctrl_tributos: (state, getters) => {
       return (
         Math.round(
           getters.ctrl_total_tributos *
-            (getters.getVc('ctrl_lucro').valor +
-              getters.getVc('ctrl_tarifa_limpa').valor) *
+            (getters.ctrl_lucro + getters.ctrl_tarifa_limpa) *
             1000,
         ) / 1000
       )
@@ -810,9 +833,9 @@ export default new Vuex.Store({
     ctrl_tarifa: (state, getters) => {
       return (
         Math.round(
-          (getters.getVc('ctrl_tributos').valor +
-            getters.getVc('ctrl_lucro').valor +
-            getters.getVc('ctrl_tarifa_limpa').valor) *
+          (getters.ctrl_tributos +
+            getters.ctrl_lucro +
+            getters.ctrl_tarifa_limpa) *
             100,
         ) / 100
       )
@@ -919,6 +942,25 @@ export default new Vuex.Store({
       })
     },
 
+    variaveisControleByFieldName(state, newItem) {
+      var indexOfItem = 0
+      var el = state.variaveis_de_controle.find(item => {
+        if (item.formula == newItem.formula) {
+          return item
+        }
+        indexOfItem = indexOfItem + 1
+      })
+
+      Vue.set(state.variaveis_de_controle, indexOfItem, {
+        id: el.id,
+        formula: el.formula || el.nome.toLowerCase().replace(' ', '-'),
+        nome: el.nome,
+        valor: newItem.valor,
+        epl: el.epl || false,
+        currency: el.currency,
+      })
+    },
+
     //Não tratado ainda
     custo_variavel(state, newItem) {
       var el = state.custo_variavel.find(item => item.id == newItem.id)
@@ -929,12 +971,6 @@ export default new Vuex.Store({
       el.valor = newItem.valor || 0
     },
   },
-  actions: {
-    removeTv(context, amount) {
-      if (context.state.totalTvCount >= amount) {
-        context.commit('removeTv', amount)
-      }
-    },
-  },
+  actions: {},
   modules: {},
 })

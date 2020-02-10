@@ -4,9 +4,6 @@
       <v-toolbar-title>Simulador de Custos Transbordo</v-toolbar-title>
     </v-toolbar>
     <v-card-text>
-      <p>
-        <v-btn @click="recalcula">recalcula</v-btn>
-      </p>
       <v-row align="center">
         <v-col cols="12">
           <p class="text-center text-uppercase headline">Variáveis básicas</p>
@@ -26,10 +23,22 @@
           <v-divider class="mx-4"></v-divider>
         </v-col>
         <v-col cols="12" md="6">
-          <v-text-field outlined label="Capacidade estática (toneladas)" />
+          <input
+            type="text"
+            id="ctrl_capacidade_estatica"
+            label="Capacidade estática (toneladas)"
+            :value="ctrl_capacidade_estatica"
+            @input="updateValue"
+          />
         </v-col>
         <v-col cols="12" md="6">
-          <v-text-field outlined disabled label="Tarifa energia (R$/kWh)" />
+          <input
+            type="text"
+            id="ctrl_tarifa_energia"
+            label="Tarifa energia (R$/kWh)"
+            :value="getVc('ctrl_tarifa_energia').valor"
+            @input="updateValue"
+          />
         </v-col>
         <v-col cols="12" md="6">
           <v-text-field outlined label="Capacidade de tombamento por hora" />
@@ -49,7 +58,9 @@
               <v-card>
                 <v-card-text>
                   <p class="caption">Tarifa</p>
-                  <p class="text-center headline"></p>
+                  <p class="text-center headline">
+                    {{ ctrl_tarifa | currency }}
+                  </p>
                 </v-card-text>
               </v-card>
             </v-col>
@@ -66,6 +77,12 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'Simulador',
   methods: {
+    updateValue(e) {
+      this.$store.commit('variaveisControleByFieldName', {
+        formula: e.target.id,
+        valor: e.target.value,
+      })
+    },
     recalcula() {
       this.gsa_rodo_ferro_variaveis_de_controle()
       this.gsa_rodo_ferro_custo_variavel()
@@ -99,14 +116,10 @@ export default {
   },
   created() {
     this.recalcula()
-    /* this.gsa_rodo_ferro_variaveis_de_controle()
-    this.$store.commit('custoFixoByFieldName', {
-      formula: 'cf_salarios',
-      valor: this['cf_salarios'],
-    }) */
   },
   computed: {
     ...mapGetters([
+      'getVc',
       'cf_salarios',
       'cf_depreciacao_das_instalacoes',
       'cf_manutecao_das_instalacoes',

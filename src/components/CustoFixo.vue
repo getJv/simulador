@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 <template>
   <div>
     <v-card flat>
@@ -136,7 +135,6 @@ export default {
       const index = this.getAllCustosFixos.indexOf(item)
       confirm('Deseja realmente excluir este item?') &&
         this.$store.commit('removeCustoFixo', index)
-      //this.desserts.splice(index, 1)
     },
 
     close() {
@@ -149,7 +147,6 @@ export default {
 
     save() {
       if (this.editedIndex > -1) {
-        //Object.assign(this.desserts[this.editedIndex], this.editedItem)
         this.$store.commit('custoFixoByFieldName', {
           formula: this.editedItem.formula,
           nome: this.editItem.nome,
@@ -160,13 +157,12 @@ export default {
           nome: this.editedItem.nome,
           valor: this.editedItem.valor,
         })
-        //this.desserts.push(this.editedItem)
       }
       this.close()
     },
   },
   computed: {
-    ...mapGetters(['custo_fixo', 'cf_total_custo_fixo', 'getAllCustosFixos']),
+    ...mapGetters(['cf_total_custo_fixo', 'getAllCustosFixos']),
     formTitle() {
       return this.editedIndex === -1 ? 'Novo item' : 'Edição de item'
     },

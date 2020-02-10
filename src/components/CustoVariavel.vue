@@ -162,11 +162,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters([
-      'custo_variavel',
-      'cv_total_custo_variavel',
-      'getAllCustosVariaveis',
-    ]),
+    ...mapGetters(['cv_total_custo_variavel', 'getAllCustosVariaveis']),
     formTitle() {
       return this.editedIndex === -1 ? 'Novo item' : 'Edição de item'
     },
