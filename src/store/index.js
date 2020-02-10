@@ -56,24 +56,29 @@ export default new Vuex.Store({
       },
     ],
     custo_variavel: [
-      { id: 1, formula: 'cv_mao_de_obra', nome: 'Mão de obra', valor: 0 },
+      {
+        id: 1,
+        formula: 'cv_mao_de_obra',
+        nome: 'Mão de obra',
+        valor: 0,
+        epl: true,
+        currency: true,
+      },
       {
         id: 2,
         formula: 'cv_energia_eletrica',
         nome: 'Energia elétrica',
         valor: 0,
+        epl: true,
+        currency: true,
       },
       {
         id: 3,
         formula: 'cv_manutencao_maquinario',
         nome: 'Manutenção de maquinário',
         valor: 0,
-      },
-      {
-        id: 4,
-        formula: 'cv_total_custo_variavel',
-        nome: 'Total de custo variável',
-        valor: 0,
+        epl: true,
+        currency: true,
       },
     ],
 
@@ -639,11 +644,12 @@ export default new Vuex.Store({
       )
     },
     cv_total_custo_variavel: (state, getters) => {
-      return (
-        getters.getCv('cv_mao_de_obra').valor +
-        getters.getCv('cv_energia_eletrica').valor +
-        getters.getCv('cv_manutencao_maquinario').valor
-      )
+      var total = 0
+      state.custo_variavel.forEach(item => {
+        total += Number(item.valor)
+      })
+
+      return getters.arredonda(total)
     },
 
     //Variaveis de controle
@@ -879,6 +885,37 @@ export default new Vuex.Store({
         valor: newItem.valor,
         epl: el.epl || false,
         currency: el.currency,
+      })
+    },
+    custoVariavelByFieldName(state, newItem) {
+      var indexOfItem = 0
+      var el = state.custo_variavel.find(item => {
+        if (item.formula == newItem.formula) {
+          return item
+        }
+        indexOfItem = indexOfItem + 1
+      })
+
+      Vue.set(state.custo_variavel, indexOfItem, {
+        id: el.id,
+        formula: el.formula || el.nome.toLowerCase().replace(' ', '-'),
+        nome: el.nome,
+        valor: newItem.valor,
+        epl: el.epl || false,
+        currency: el.currency,
+      })
+    },
+    removeCustoVariavel(state, index) {
+      state.custo_variavel.splice(index, 1)
+    },
+
+    addCustoVariavel(state, newItem) {
+      state.custo_variavel.push({
+        id: state.custo_variavel.length + 1,
+        formula: newItem.nome.toLowerCase().replace(' ', '-'),
+        nome: newItem.nome,
+        valor: newItem.valor,
+        currency: false,
       })
     },
 
