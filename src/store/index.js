@@ -5,7 +5,6 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    pessoa: [{ nome: 'jhonatan' }, { nome: 'maria' }],
     custo_fixo: [
       {
         id: 1,
@@ -190,7 +189,7 @@ export default new Vuex.Store({
         id: 1,
         formula: 'ctrl_capacidade_estatica',
         nome: 'Capacidade estatica',
-        valor: 36000,
+        valor: 0,
         currency: false,
         epl: true,
       },
@@ -681,6 +680,12 @@ export default new Vuex.Store({
 
     //Variaveis de controle
 
+    getVariaveisControle: state => fieldName => {
+      return state.variaveis_de_controle.find(
+        item => item.formula === fieldName,
+      )
+    },
+
     ctrl_capacidade_estatica: (state, getters) => {
       return getters.getVc('ctrl_capacidade_estatica').valor
     },
@@ -971,6 +976,12 @@ export default new Vuex.Store({
       el.valor = newItem.valor || 0
     },
   },
-  actions: {},
+  actions: {
+    ctrl_capacidade_estatica: ({ commit, getters }) => {
+      var obj = getters.getVariaveisControle('ctrl_capacidade_estatica')
+      obj.valor = 36000
+      commit('variaveisControleByFieldName', obj)
+    },
+  },
   modules: {},
 })

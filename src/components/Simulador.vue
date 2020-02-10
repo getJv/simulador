@@ -4,6 +4,12 @@
       <v-toolbar-title>Simulador de Custos Transbordo</v-toolbar-title>
     </v-toolbar>
     <v-card-text>
+      ---
+      {{
+        this.$store.getters.getVariaveisControle('ctrl_capacidade_estatica')
+          .valor
+      }}
+      ---
       <v-row align="center">
         <v-col cols="12">
           <p class="text-center text-uppercase headline">Variáveis básicas</p>
@@ -115,7 +121,7 @@ export default {
     },
   },
   created() {
-    this.recalcula()
+    //this.recalcula()
   },
   computed: {
     ...mapGetters([

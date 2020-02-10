@@ -162,10 +162,7 @@ export default {
       this.itens = this.$store.state.variaveis_de_controle
     },
     aplicarFormula(item) {
-      this.$store.commit('variaveisControleByFieldName', {
-        formula: item.formula,
-        valor: this.$store.getters[item.formula],
-      })
+      this.$store.dispatch(item.formula)
     },
     editItem(item) {
       this.editedIndex = this.itens.indexOf(item)
