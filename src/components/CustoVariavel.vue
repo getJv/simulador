@@ -5,7 +5,7 @@
         <v-data-table
           hide-default-footer
           :headers="headers"
-          :items="getAllCustosVariaveis"
+          :items="itens"
           sort-by="id"
           class="elevation-1"
         >
@@ -112,6 +112,9 @@
 import { mapGetters } from 'vuex'
 export default {
   name: 'CustoVariavel',
+  mounted() {
+    this.itens = this.custo_variavel
+  },
   methods: {
     updateValue(e) {
       this.$store.commit('custoVariavelByFieldName', {
@@ -120,10 +123,7 @@ export default {
       })
     },
     aplicarFormula(item) {
-      this.$store.commit('custoVariavelByFieldName', {
-        formula: item.formula,
-        valor: this.$store.getters[item.formula],
-      })
+      this.$store.dispatch(item.formula)
     },
     editItem(item) {
       this.editedIndex = this.getAllCustosVariaveis.indexOf(item)
@@ -162,13 +162,14 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(['cv_total_custo_variavel', 'getAllCustosVariaveis']),
+    ...mapGetters(['cv_total_custo_variavel', 'custo_variavel']),
     formTitle() {
       return this.editedIndex === -1 ? 'Novo item' : 'Edição de item'
     },
   },
   data() {
     return {
+      itens: [],
       dialog: false,
       headers: [
         {

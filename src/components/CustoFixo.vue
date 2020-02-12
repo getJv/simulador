@@ -5,7 +5,7 @@
         <v-data-table
           hide-default-footer
           :headers="headers"
-          :items="getAllCustosFixos"
+          :items="itens"
           sort-by="id"
           class="elevation-1"
         >
@@ -112,6 +112,9 @@
 import { mapGetters } from 'vuex'
 export default {
   name: 'CustoFixo',
+  mounted() {
+    this.itens = this.custo_fixo
+  },
   methods: {
     updateValue(e) {
       this.$store.commit('custoFixoByFieldName', {
@@ -120,10 +123,7 @@ export default {
       })
     },
     aplicarFormula(item) {
-      this.$store.commit('custoFixoByFieldName', {
-        formula: item.formula,
-        valor: this.$store.getters[item.formula],
-      })
+      this.$store.dispatch(item.formula)
     },
     editItem(item) {
       this.editedIndex = this.getAllCustosFixos.indexOf(item)
@@ -162,13 +162,14 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(['cf_total_custo_fixo', 'getAllCustosFixos']),
+    ...mapGetters(['cf_total_custo_fixo', 'custo_fixo']),
     formTitle() {
       return this.editedIndex === -1 ? 'Novo item' : 'Edição de item'
     },
   },
   data() {
     return {
+      itens: [],
       dialog: false,
       headers: [
         {

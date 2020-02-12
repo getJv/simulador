@@ -1,5 +1,79 @@
 <template>
   <div>
+    <v-row justify="center" align="center">
+      <v-col cols="12" sm="3">
+        <v-card
+          class="mx-auto mb-5"
+          color="green green-ligthen-3"
+          dark
+          max-width="400"
+        >
+          <v-card-title>
+            <span class="title font-weight-light text-uppercase "
+              >Tarifa Limpa</span
+            >
+          </v-card-title>
+
+          <v-card-text class="headline font-weight-bold text-center">
+            <v-divider class="pa-2"></v-divider>
+            {{ ctrl_tarifa_limpa | currency }}</v-card-text
+          >
+        </v-card>
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-card
+          class="mx-auto mb-5"
+          color="green green-ligthen-3"
+          dark
+          max-width="400"
+        >
+          <v-card-title>
+            <span class="title font-weight-light text-uppercase ">Lucro</span>
+          </v-card-title>
+
+          <v-card-text class="headline font-weight-bold text-center">
+            <v-divider class="pa-2"></v-divider>
+            {{ ctrl_lucro | currency }}</v-card-text
+          >
+        </v-card>
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-card
+          class="mx-auto mb-5"
+          color="green green-ligthen-3"
+          dark
+          max-width="400"
+        >
+          <v-card-title>
+            <span class="title font-weight-light text-uppercase "
+              >Tributos</span
+            >
+          </v-card-title>
+
+          <v-card-text class="headline font-weight-bold text-center">
+            <v-divider class="pa-2"></v-divider>
+            {{ ctrl_tributos | currency }}</v-card-text
+          >
+        </v-card>
+      </v-col>
+      <v-col cols="12" sm="3">
+        <v-card
+          class="mx-auto mb-5"
+          color="green green-ligthen-3"
+          dark
+          max-width="400"
+        >
+          <v-card-title>
+            <span class="title font-weight-light text-uppercase ">Tarifa</span>
+          </v-card-title>
+
+          <v-card-text class="headline font-weight-bold text-center">
+            <v-divider class="pa-2"></v-divider>
+            {{ ctrl_tarifa | currency }}</v-card-text
+          >
+        </v-card>
+      </v-col>
+    </v-row>
     <v-card flat>
       <v-card-text>
         <v-data-table
@@ -60,9 +134,9 @@
           </template>
           <template v-slot:item.valor="{ item }">
             <span v-if="item.currency">
-              {{ item.valor | currency }}
+              {{ getVariaveisControle(item.formula).valor | currency }}
             </span>
-            <span v-else> {{ item.valor }} </span>
+            <span v-else> {{ getVariaveisControle(item.formula).valor }} </span>
           </template>
           <template v-slot:item.action="{ item }">
             <v-tooltip class="ma-2" right>
@@ -91,61 +165,6 @@
         </v-data-table>
       </v-card-text>
     </v-card>
-    <v-row justify="center" align="center">
-      <v-col cols="12" sm="4">
-        <v-card
-          class="mx-auto mb-5"
-          color="green green-ligthen-3"
-          dark
-          max-width="400"
-        >
-          <v-card-title>
-            <span class="title font-weight-light text-uppercase "
-              >Tarifa Limpa</span
-            >
-          </v-card-title>
-
-          <v-card-text class="headline font-weight-bold text-center">
-            <v-divider class="pa-2"></v-divider>
-            {{ ctrl_tarifa_limpa | currency }}</v-card-text
-          >
-        </v-card>
-      </v-col>
-      <v-col cols="12" sm="4">
-        <v-card
-          class="mx-auto mb-5"
-          color="green green-ligthen-3"
-          dark
-          max-width="400"
-        >
-          <v-card-title>
-            <span class="title font-weight-light text-uppercase ">Lucro</span>
-          </v-card-title>
-
-          <v-card-text class="headline font-weight-bold text-center">
-            <v-divider class="pa-2"></v-divider>
-            {{ ctrl_lucro | currency }}</v-card-text
-          >
-        </v-card>
-      </v-col>
-      <v-col cols="12" sm="4">
-        <v-card
-          class="mx-auto mb-5"
-          color="green green-ligthen-3"
-          dark
-          max-width="400"
-        >
-          <v-card-title>
-            <span class="title font-weight-light text-uppercase ">Tarifa</span>
-          </v-card-title>
-
-          <v-card-text class="headline font-weight-bold text-center">
-            <v-divider class="pa-2"></v-divider>
-            {{ ctrl_tarifa | currency }}</v-card-text
-          >
-        </v-card>
-      </v-col>
-    </v-row>
   </div>
 </template>
 
@@ -186,13 +205,7 @@ export default {
 
     save() {
       if (this.editedIndex > -1) {
-        var obj = {
-          formula: this.editedItem.formula,
-          nome: this.editItem.nome,
-          valor: this.editedItem.valor,
-        }
-        this.$store.commit('variaveisControleByFieldName', obj)
-        this.aplicarFormula(obj)
+        this.$store.dispatch(this.editedItem.formula, this.editedItem.valor)
       } else {
         this.$store.commit('addVariavelControle', {
           nome: this.editedItem.nome,
@@ -205,6 +218,7 @@ export default {
   },
   computed: {
     ...mapGetters([
+      'getVariaveisControle',
       'ctrl_tarifa_limpa',
       'ctrl_lucro',
       'ctrl_tributos',

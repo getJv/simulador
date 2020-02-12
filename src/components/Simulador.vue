@@ -4,12 +4,6 @@
       <v-toolbar-title>Simulador de Custos Transbordo</v-toolbar-title>
     </v-toolbar>
     <v-card-text>
-      ---
-      {{
-        this.$store.getters.getVariaveisControle('ctrl_capacidade_estatica')
-          .valor
-      }}
-      ---
       <v-row align="center">
         <v-col cols="12">
           <p class="text-center text-uppercase headline">Variáveis básicas</p>
@@ -33,8 +27,6 @@
             type="text"
             id="ctrl_capacidade_estatica"
             label="Capacidade estática (toneladas)"
-            :value="ctrl_capacidade_estatica"
-            @input="updateValue"
           />
         </v-col>
         <v-col cols="12" md="6">
@@ -42,8 +34,6 @@
             type="text"
             id="ctrl_tarifa_energia"
             label="Tarifa energia (R$/kWh)"
-            :value="getVc('ctrl_tarifa_energia').valor"
-            @input="updateValue"
           />
         </v-col>
         <v-col cols="12" md="6">
@@ -91,41 +81,40 @@ export default {
     },
     recalcula() {
       this.gsa_rodo_ferro_variaveis_de_controle()
-      this.gsa_rodo_ferro_custo_variavel()
       this.gsa_rodo_ferro_custo_fixo()
-      this.gsa_rodo_ferro_variaveis_de_controle()
+      this.gsa_rodo_ferro_custo_variavel()
     },
     gsa_rodo_ferro_custo_fixo() {
-      this.$store.getters.getAllCustosFixos.forEach(item => {
-        this.$store.commit('custoFixoByFieldName', {
-          formula: item.formula,
-          valor: this[item.formula],
-        })
+      var ordem = this.custo_fixo.sort((a, b) => a.ordem - b.ordem)
+      ordem.forEach(item => {
+        this.$store.dispatch(item.formula)
+        //console.log(item.ordem + ' - ' + item.formula + ' Iniciado')
       })
     },
     gsa_rodo_ferro_custo_variavel() {
-      this.$store.getters.getAllCustosVariaveis.forEach(item => {
-        this.$store.commit('custo_variavel', {
-          id: item.id,
-          valor: this[item.formula],
-        })
+      var ordem = this.custo_variavel.sort((a, b) => a.ordem - b.ordem)
+      ordem.forEach(item => {
+        this.$store.dispatch(item.formula)
+        //console.log(item.ordem + ' - ' + item.formula + ' Iniciado')
       })
     },
     gsa_rodo_ferro_variaveis_de_controle() {
-      this.$store.getters.getAllVariaveisControle.forEach(item => {
-        this.$store.commit('variaveis_de_controle', {
-          id: item.id,
-          valor: this[item.formula],
-        })
+      var ordem = this.variaveis_de_controle.sort((a, b) => a.ordem - b.ordem)
+      ordem.forEach(item => {
+        this.$store.dispatch(item.formula)
+        //console.log(item.ordem + ' - ' + item.formula + ' Iniciado')
       })
     },
   },
   created() {
-    //this.recalcula()
+    this.recalcula()
   },
   computed: {
     ...mapGetters([
-      'getVc',
+      'custo_fixo',
+      'custo_variavel',
+      'variaveis_de_controle',
+
       'cf_salarios',
       'cf_depreciacao_das_instalacoes',
       'cf_manutecao_das_instalacoes',
