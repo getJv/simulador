@@ -12,7 +12,11 @@
           <tbody>
             <tr v-for="item in itens" :key="item.id">
               <td>{{ item.nome }}</td>
-              <td>{{ item.valor | currency }}</td>
+              <td>{{ item.valor }}</td>
+            </tr>
+            <tr>
+              <td>Total</td>
+              <td>{{ $store.getters.cg_ff_ctrl_total_tributos }}</td>
             </tr>
           </tbody>
         </template>
@@ -23,30 +27,14 @@
 
 <script>
 export default {
+  name: "Tributacao",
   computed: {},
   data() {
     return {
-      itens: [
-        {
-          nome: 'Mão de Obra',
-          valor: this.$store.state.custo_variavel.mao_de_obra,
-        },
-        {
-          nome: 'Energia Eletrica',
-          valor: this.$store.getters.cv_energia_eletrica,
-        },
-        {
-          nome: 'Manutenção de maquinário',
-          valor: this.$store.getters.cv_manutencao_maquinario,
-        },
-        {
-          nome: 'Custo Variável',
-          valor: this.$store.getters.cv_total_custo_variavel,
-        },
-      ],
-    }
-  },
-}
+      itens: this.$store.state.tributos
+    };
+  }
+};
 </script>
 
 <style></style>

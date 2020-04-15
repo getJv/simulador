@@ -16,7 +16,7 @@
             </tr>
             <tr>
               <td>Total</td>
-              <td>{{ $store.getters.ctrl_total_tributos }}</td>
+              <td>{{ $store.getters.cg_rfr_ctrl_total_tributos }}</td>
             </tr>
           </tbody>
         </template>
@@ -27,13 +27,14 @@
 
 <script>
 export default {
+  name: "Tributacao",
   computed: {},
   data() {
     return {
-      itens: this.$store.state.tributos,
-    }
-  },
-}
+      itens: this.$store.state.tributos
+    };
+  }
+};
 </script>
 
 <style></style>
