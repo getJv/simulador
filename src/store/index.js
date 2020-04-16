@@ -4,6 +4,7 @@ import CgHidroFerroHidro from "./modules/cgHidroFerroHidro";
 import CgHidroRodoHidro from "./modules/cgHidroRodoHidro";
 import CgRodoFerroRodo from "./modules/cgRodoFerroRodo";
 import CgFerroFerro from "./modules/cgFerroFerro";
+import GsaRodoFerro from "./modules/gsaRodoFerro";
 
 Vue.use(Vuex);
 
@@ -12,6 +13,7 @@ export default new Vuex.Store({
     CgHidroFerroHidro,
     CgHidroRodoHidro,
     CgRodoFerroRodo,
-    CgFerroFerro
-  }
+    CgFerroFerro,
+    GsaRodoFerro,
+  },
 });

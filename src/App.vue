@@ -21,7 +21,10 @@
                     <v-col cols="12">
                       <v-list shaped>
                         <v-subheader>Selecione uma opção</v-subheader>
-                        <v-list-item-group color="primary">
+                        <v-list-item-group
+                          v-model="simuladorSelecionado"
+                          color="primary"
+                        >
                           <v-list-item
                             v-for="(item, i) in listaDeSimuladores"
                             :key="i"
@@ -78,6 +81,7 @@ import SimuladorHidroFerroHidro from "@/components/hidroFerroHidro/Simulador";
 import SimuladorHidroRodoHidro from "@/components/hidroRodoHidro/Simulador";
 import SimuladorRodoFerroRodo from "@/components/rodoFerroRodo/Simulador";
 import SimuladorFerroFerro from "@/components/ferroFerro/Simulador";
+import SimuladorGsaRodoFerro from "@/components/gsaRodoFerro/Simulador";
 
 export default {
   name: "App",
@@ -86,6 +90,7 @@ export default {
     SimuladorHidroRodoHidro,
     SimuladorRodoFerroRodo,
     SimuladorFerroFerro,
+    SimuladorGsaRodoFerro,
   },
   computed: {
     listaDeSimuladores() {
@@ -107,7 +112,7 @@ export default {
   },
   data() {
     return {
-      simuladorSelecionado: "CG - FERRO-FERRO",
+      simuladorSelecionado: "GSA - RODO-FERRO",
       simuladores: [
         {
           nome: "CG - HIDRO-FERRO-HIDRO",
@@ -127,6 +132,11 @@ export default {
         {
           nome: "CG - FERRO-FERRO",
           component: "SimuladorFerroFerro",
+          imagem: require("@/assets/ferro-ferro.png"),
+        },
+        {
+          nome: "GSA - RODO-FERRO",
+          component: "SimuladorGsaRodoFerro",
           imagem: require("@/assets/ferro-ferro.png"),
         },
       ],
