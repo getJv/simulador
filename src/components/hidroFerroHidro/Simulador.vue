@@ -1,18 +1,11 @@
 <template>
   <v-row justify="center" align="center">
-    <v-col cols="12" md="6"
+    <v-col cols="12" md="8"
       ><v-card outlined>
         <v-card-text>
           <v-row justify="center" align="center">
-            <v-col cols="12" md="3">
-              <NumberField
-                v-for="v in cg_hfh_variaveis_de_entrada"
-                :key="v.id"
-                :formulaName="v.formula"
-              />
-            </v-col>
             <v-col cols="12" md="9">
-              <p class="text-center subtitle-2">Tarifa</p>
+              <p class="text-center title font-weight-black">Tarifa</p>
               <p class="text-center display-3 font-weight-black">
                 {{
                   cg_hfh_getVar(
@@ -25,32 +18,44 @@
           </v-row>
         </v-card-text>
         <v-card-actions>
-          <v-dialog v-model="dialog" width="1500">
-            <template v-slot:activator="{ on }">
-              <v-btn outlined small block class="text-center" v-on="on"
-                >Ver Detalhamento</v-btn
-              >
-            </template>
+          <v-row justify="center" align="center">
+            <v-col
+              cols="12"
+              sm="2"
+              v-for="v in cg_hfh_variaveis_de_entrada"
+              :key="v.id"
+            >
+              <NumberField :formulaName="v.formula" />
+            </v-col>
+            <v-col cols="12">
+              <v-dialog v-model="dialog" width="1500">
+                <template v-slot:activator="{ on }">
+                  <v-btn outlined small block class="text-center" v-on="on"
+                    >Ver Detalhamento</v-btn
+                  >
+                </template>
 
-            <v-card>
-              <v-card-title class="headline grey lighten-2" primary-title
-                >Detalhamento da simulação</v-card-title
-              >
+                <v-card>
+                  <v-card-title class="headline grey lighten-2" primary-title
+                    >Detalhamento da simulação</v-card-title
+                  >
 
-              <v-card-text>
-                <Tabs />
-              </v-card-text>
+                  <v-card-text>
+                    <Tabs />
+                  </v-card-text>
 
-              <v-divider></v-divider>
+                  <v-divider></v-divider>
 
-              <v-card-actions>
-                <v-spacer></v-spacer>
-                <v-btn color="primary" text @click="dialog = false"
-                  >Fechar</v-btn
-                >
-              </v-card-actions>
-            </v-card>
-          </v-dialog>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn color="primary" text @click="dialog = false"
+                      >Fechar</v-btn
+                    >
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </v-col>
+          </v-row>
         </v-card-actions>
       </v-card></v-col
     >

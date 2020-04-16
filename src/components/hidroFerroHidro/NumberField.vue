@@ -1,17 +1,15 @@
 <template>
-  <v-tooltip v-model="show" right>
+  <v-tooltip v-model="show" top>
     <template v-slot:activator="{ on }">
-      <v-btn class="ma-1" text outlined @click.stop="dialog = true">
-        <v-icon v-on="on">
-          {{ icone }}
-        </v-icon>
-      </v-btn>
+      <v-icon class="ma-1" @click.stop="dialog = true" v-on="on">
+        {{ icone }}
+      </v-icon>
     </template>
     <span>{{ label }}</span>
 
     <v-dialog v-model="dialog" max-width="290">
       <v-card>
-        <v-card-title class="subtitle-2">{{ label }}</v-card-title>
+        <v-card-title class="body-1">{{ label }}</v-card-title>
 
         <v-card-text>
           <label class="pure-material-textfield-outlined">
@@ -56,6 +54,7 @@ export default {
   },
   data() {
     return {
+      show: "",
       label: "",
       icone: "",
       dialog: false,
