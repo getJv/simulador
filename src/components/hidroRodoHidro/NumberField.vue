@@ -46,8 +46,8 @@ export default {
     },
   },
   created() {
-    var obj = this.cg_hfh_getVar(
-      "cg_hfh_variaveis_de_entrada",
+    var obj = this.cg_hrh_getVar(
+      "cg_hrh_variaveis_de_entrada",
       this.formulaName
     );
     this.label = obj.nome;
@@ -73,8 +73,8 @@ export default {
   computed: {
     value: {
       get() {
-        return this.cg_hfh_getVar(
-          "cg_hfh_variaveis_de_entrada",
+        return this.cg_hrh_getVar(
+          "cg_hrh_variaveis_de_entrada",
           this.formulaName
         ).valor;
       },
@@ -84,7 +84,7 @@ export default {
         }
       },
     },
-    ...mapGetters(["cg_hfh_getVar"]),
+    ...mapGetters(["cg_hrh_getVar"]),
   },
 };
 </script>

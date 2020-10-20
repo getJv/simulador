@@ -11,7 +11,7 @@ const state = {
       unidade: "R$/m²",
       formula: "cg_ff_armazem_fechado",
       filters: ["currency"],
-      quantidade: 22500
+      quantidade: 22500,
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ const state = {
       valor: 2529.14,
       unidade: "R$/m²",
       filters: ["currency"],
-      quantidade: 5000
+      quantidade: 5000,
     },
     {
       id: 3,
@@ -30,7 +30,7 @@ const state = {
       formula: "cg_ff_armazem_fechado",
       unidade: "R$/m²",
       filters: ["currency"],
-      quantidade: 22500
+      quantidade: 22500,
     },
     {
       id: 4,
@@ -39,7 +39,7 @@ const state = {
       valor: 374.75,
       unidade: "m²",
       filters: ["currency"],
-      quantidade: 750
+      quantidade: 750,
     },
     {
       id: 5,
@@ -48,7 +48,7 @@ const state = {
       valor: 871.31,
       unidade: "m²",
       filters: ["currency"],
-      quantidade: 500
+      quantidade: 500,
     },
     {
       id: 6,
@@ -57,7 +57,7 @@ const state = {
       valor: 1151019.98,
       unidade: "R$/Km",
       filters: ["currency"],
-      quantidade: 1
+      quantidade: 1,
     },
     {
       id: 7,
@@ -66,7 +66,7 @@ const state = {
       valor: 5371199.42,
       unidade: "R$/Km",
       filters: ["currency"],
-      quantidade: 4
+      quantidade: 4,
     },
     {
       id: 8,
@@ -75,7 +75,7 @@ const state = {
       valor: 250000,
       unidade: "-",
       filters: ["currency"],
-      quantidade: 2
+      quantidade: 2,
     },
     {
       id: 9,
@@ -84,7 +84,7 @@ const state = {
       valor: 3381.92,
       unidade: "R$/m²",
       filters: ["currency"],
-      quantidade: 0
+      quantidade: 0,
     },
     {
       id: 10,
@@ -93,8 +93,8 @@ const state = {
       valor: 374.75,
       unidade: "m²",
       filters: ["currency"],
-      quantidade: 400
-    }
+      quantidade: 400,
+    },
   ],
   cg_ff_equipamentos: [
     {
@@ -104,7 +104,7 @@ const state = {
       valor: 12000000,
       filters: ["currency"],
       periodo_depreciacao: 20,
-      fator: 0.000000883
+      fator: 0.000000883,
     },
     {
       id: 2,
@@ -113,7 +113,7 @@ const state = {
       valor: 2560000,
       filters: ["currency"],
       periodo_depreciacao: 20,
-      fator: 0.000000883
+      fator: 0.000000883,
     },
     {
       id: 3,
@@ -122,7 +122,7 @@ const state = {
       valor: 8581234,
       filters: ["currency"],
       periodo_depreciacao: 20,
-      fator: 0
+      fator: 0,
     },
     {
       id: 4,
@@ -131,7 +131,7 @@ const state = {
       valor: 5735986,
       filters: ["currency"],
       periodo_depreciacao: 20,
-      fator: 0
+      fator: 0,
     },
     {
       id: 5,
@@ -141,7 +141,7 @@ const state = {
       valor: 2000000,
       filters: ["currency"],
       periodo_depreciacao: 20,
-      fator: 0
+      fator: 0,
     },
     {
       id: 6,
@@ -150,7 +150,7 @@ const state = {
       valor: 213160,
       filters: ["currency"],
       periodo_depreciacao: 20,
-      fator: 0
+      fator: 0,
     },
     {
       id: 7,
@@ -159,7 +159,7 @@ const state = {
       valor: 277108,
       filters: ["currency"],
       periodo_depreciacao: 20,
-      fator: 0.000003532
+      fator: 0.000003532,
     },
     {
       id: 8,
@@ -168,7 +168,7 @@ const state = {
       valor: 213160,
       filters: ["currency"],
       periodo_depreciacao: 20,
-      fator: 0.000003532
+      fator: 0.000003532,
     },
     {
       id: 9,
@@ -177,7 +177,7 @@ const state = {
       valor: 50000,
       filters: ["currency"],
       periodo_depreciacao: 10,
-      fator: 0.000003532
+      fator: 0.000003532,
     },
     {
       id: 10,
@@ -186,7 +186,7 @@ const state = {
       valor: 127600,
       filters: ["currency"],
       periodo_depreciacao: 10,
-      fator: 0.000001766
+      fator: 0.000001766,
     },
     {
       id: 11,
@@ -195,7 +195,7 @@ const state = {
       valor: 271300,
       filters: ["currency"],
       periodo_depreciacao: 10,
-      fator: 0.000001766
+      fator: 0.000001766,
     },
     {
       id: 12,
@@ -204,7 +204,7 @@ const state = {
       valor: 1500000,
       filters: ["currency"],
       periodo_depreciacao: 10,
-      fator: 0.000000883
+      fator: 0.000000883,
     },
     {
       id: 13,
@@ -213,7 +213,7 @@ const state = {
       valor: 1625995,
       filters: ["currency"],
       periodo_depreciacao: 25,
-      fator: 0.000000883
+      fator: 0.000000883,
     },
     {
       id: 14,
@@ -222,7 +222,7 @@ const state = {
       valor: 2167993,
       filters: ["currency"],
       periodo_depreciacao: 25,
-      fator: 0.000000883
+      fator: 0.000000883,
     },
     {
       id: 15,
@@ -231,14 +231,15 @@ const state = {
       valor: 1987327,
       filters: ["currency"],
       periodo_depreciacao: 25,
-      fator: 0.000000883
-    }
+      fator: 0.000000883,
+    },
   ],
   cg_ff_variaveis_de_entrada: [
     {
       id: 1,
       ordem: 1,
       formula: "cg_ff_ve_transbordo_medio_por_hora",
+      icone: "mdi-dump-truck",
       nome: "Transbordo médio por Hora (t/h)",
       valor: 0,
       filters: [],
@@ -247,22 +248,27 @@ const state = {
         "cg_ff_cf_seguros",
         "cg_ff_cf_custo_oportunidade",
         "cg_ff_ctrl_capacidade_estatica",
-        "cg_ff_ctrl_tarifa_limpa"
-      ]
+        "cg_ff_ctrl_tarifa_limpa",
+      ],
     },
     {
       id: 2,
       ordem: 2,
       formula: "cg_ff_ve_tempo_medio_de_armazenagem",
+      icone: "mdi-warehouse",
       nome: "Tempo médio de armazenagem (dias)",
       valor: 0,
       filters: [],
-      dependentes: ["cg_ff_ctrl_capacidade_estatica", "cg_ff_ctrl_tarifa_limpa"]
+      dependentes: [
+        "cg_ff_ctrl_capacidade_estatica",
+        "cg_ff_ctrl_tarifa_limpa",
+      ],
     },
     {
       id: 3,
       ordem: 3,
       formula: "cg_ff_ve_movimentacao",
+      icone: "mdi-weight-kilogram",
       nome: "Movimentação (toneladas por ano)",
       valor: 0,
       filters: [],
@@ -274,36 +280,39 @@ const state = {
         "cg_ff_cf_seguros",
         "cg_ff_cf_custo_oportunidade",
         "cg_ff_ctrl_giro",
-        "cg_ff_ctrl_tarifa_limpa"
-      ]
+        "cg_ff_ctrl_tarifa_limpa",
+      ],
     },
     {
       id: 4,
       ordem: 4,
       formula: "cg_ff_ve_tarifa_energia",
+      icone: "mdi-currency-usd-circle-outline",
       nome: "Tarifa de Energia (R$/Kw)",
       valor: 0,
       filters: [],
-      dependentes: ["cg_ff_cv_energia_eletrica", "cg_ff_ctrl_tarifa_limpa"]
+      dependentes: ["cg_ff_cv_energia_eletrica", "cg_ff_ctrl_tarifa_limpa"],
     },
     {
       id: 5,
       ordem: 5,
       formula: "cg_ff_ve_numero_de_funcionarios",
+      icone: "mdi-account-group",
       nome: "Número de funcionários",
       valor: 0,
       filters: [],
-      dependentes: ["cg_ff_cf_salarios", "cg_ff_ctrl_tarifa_limpa"]
+      dependentes: ["cg_ff_cf_salarios", "cg_ff_ctrl_tarifa_limpa"],
     },
     {
       id: 6,
       ordem: 6,
       formula: "cg_ff_ve_salario_medio",
+      icone: "mdi-account-cash-outline",
       nome: "Salário médio",
       valor: 0,
       filters: [],
-      dependentes: ["cg_ff_cf_salarios", "cg_ff_ctrl_tarifa_limpa"]
-    }
+      dependentes: ["cg_ff_cf_salarios", "cg_ff_ctrl_tarifa_limpa"],
+    },
   ],
   cg_ff_custos_fixos: [
     {
@@ -313,7 +322,7 @@ const state = {
       nome: "Salários",
       valor: 0,
       filters: ["currency"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 2,
@@ -322,7 +331,7 @@ const state = {
       nome: "Depreciação das instalações",
       valor: 0,
       filters: ["currency"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 3,
@@ -331,7 +340,7 @@ const state = {
       nome: "Manutenção das instalações",
       valor: 0,
       filters: ["currency"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 4,
@@ -340,7 +349,7 @@ const state = {
       nome: "Depreciação Maquinário",
       valor: 0,
       filters: ["currency"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 5,
@@ -349,7 +358,7 @@ const state = {
       nome: "Seguros",
       valor: 0,
       filters: ["currency"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 6,
@@ -358,8 +367,8 @@ const state = {
       nome: "Custo de Oportunidade",
       valor: 0,
       filters: ["currency"],
-      dependentes: []
-    }
+      dependentes: [],
+    },
   ],
   cg_ff_custos_variaveis: [
     {
@@ -368,7 +377,7 @@ const state = {
       nome: "Energia elétrica",
       valor: 0,
       filters: ["currency"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 2,
@@ -376,7 +385,7 @@ const state = {
       nome: "Consumo de equipamentos",
       valor: 0,
       filters: ["currency"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 3,
@@ -384,8 +393,8 @@ const state = {
       nome: "Manutenção de maquinário",
       valor: 0,
       filters: ["currency"],
-      dependentes: []
-    }
+      dependentes: [],
+    },
   ],
   cg_ff_variaveis_de_ctrl: [
     {
@@ -395,7 +404,7 @@ const state = {
       nome: "Consumo de energia elétrica (Kw/t)",
       valor: 0,
       filters: ["point"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 2,
@@ -404,7 +413,7 @@ const state = {
       nome: "Consumo de equipamentos (R$/t)",
       valor: 0,
       filters: ["point"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 3,
@@ -413,7 +422,7 @@ const state = {
       nome: "Encargos Sociais",
       valor: 0,
       filters: ["percent"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 4,
@@ -422,7 +431,7 @@ const state = {
       nome: "Benefícios",
       valor: 0,
       filters: ["percent"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 5,
@@ -436,8 +445,8 @@ const state = {
         "cg_ff_cf_manutencao_instalacoes",
         "cg_ff_cf_depreciacao_maquinario",
         "cg_ff_cf_seguros",
-        "cg_ff_cf_custo_oportunidade"
-      ]
+        "cg_ff_cf_custo_oportunidade",
+      ],
     },
     {
       id: 6,
@@ -446,7 +455,7 @@ const state = {
       nome: "Periodo de depreciação da obra civil",
       valor: 0,
       filters: ["point"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 7,
@@ -455,7 +464,7 @@ const state = {
       nome: "Fator de manutenção da obra civil",
       valor: 0,
       filters: ["percent"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 8,
@@ -464,7 +473,7 @@ const state = {
       nome: "Remuneração do capital",
       valor: 0,
       filters: ["percent"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 9,
@@ -473,7 +482,7 @@ const state = {
       nome: "Seguros",
       valor: 0,
       filters: ["percent"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 10,
@@ -482,7 +491,7 @@ const state = {
       nome: "Giro",
       valor: 0,
       filters: ["point"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 11,
@@ -495,8 +504,8 @@ const state = {
       dependentes: [
         "cg_ff_carregar_tbl_de_recursos",
         "cg_ff_ctrl_giro",
-        "cg_ff_ctrl_instalacoes"
-      ]
+        "cg_ff_ctrl_instalacoes",
+      ],
     },
     {
       id: 12,
@@ -505,7 +514,7 @@ const state = {
       nome: "margem de lucro",
       valor: 0,
       filters: ["percent"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 13,
@@ -517,8 +526,8 @@ const state = {
       dependentes: [
         "cg_ff_ctrl_lucro",
         "cg_ff_ctrl_tributos",
-        "cg_ff_ctrl_tarifa"
-      ]
+        "cg_ff_ctrl_tarifa",
+      ],
     },
     {
       id: 14,
@@ -527,7 +536,7 @@ const state = {
       nome: "Lucro",
       valor: 0,
       filters: ["currency"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 15,
@@ -536,7 +545,7 @@ const state = {
       nome: "Tributos",
       valor: 0,
       filters: ["currency"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 16,
@@ -545,7 +554,7 @@ const state = {
       nome: "Tarifa",
       valor: 0,
       filters: ["currency"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 17,
@@ -554,7 +563,7 @@ const state = {
       nome: "Disponibilidade dos equipamentos",
       valor: 0,
       filters: ["percent"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 18,
@@ -563,7 +572,7 @@ const state = {
       nome: "Disponibilidade de vagões no pátio",
       valor: 0,
       filters: ["percent"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 19,
@@ -572,7 +581,7 @@ const state = {
       nome: "Horas de Funcionamento diário",
       valor: 0,
       filters: ["point"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 20,
@@ -581,7 +590,7 @@ const state = {
       nome: "Paradas para manutenção (mensal)",
       valor: 0,
       filters: ["percent"],
-      dependentes: []
+      dependentes: [],
     },
     {
       id: 21,
@@ -590,12 +599,12 @@ const state = {
       nome: "Fator de manutenção do maquinario",
       valor: 0,
       filters: ["percent"],
-      dependentes: []
-    }
-  ]
+      dependentes: [],
+    },
+  ],
 };
 const getters = {
-  cg_ff_armazem_fechado: (state, getters) => item => {
+  cg_ff_armazem_fechado: (state, getters) => (item) => {
     var capacidade_estatica = getters.cg_ff_getVar(
       "cg_ff_variaveis_de_ctrl",
       "cg_ff_ctrl_capacidade_estatica"
@@ -606,7 +615,7 @@ const getters = {
 
     return item;
   },
-  cg_ff_calcular_quantidade_e_depreciacao: (state, getters) => item => {
+  cg_ff_calcular_quantidade_e_depreciacao: (state, getters) => (item) => {
     if (!item.formula) {
       //Calculo da quantidade
       var movimentacao = getters.cg_ff_getVar(
@@ -621,7 +630,7 @@ const getters = {
       return getters[item.formula](item);
     }
   },
-  cg_ff_calcular_total_e_quantidade_recursos: (state, getters) => item => {
+  cg_ff_calcular_total_e_quantidade_recursos: (state, getters) => (item) => {
     if (!item.formula) {
       item.total = item.quantidade * item.valor;
       return item;
@@ -632,20 +641,20 @@ const getters = {
   cg_ff_eqt_total_maquinario: (state, getters) => {
     var total = 0;
     getters.cg_ff_equipamentos_de_transbordo.forEach(
-      item => (total += item.valor_total)
+      (item) => (total += item.valor_total)
     );
     return total;
   },
   cg_ff_rec_total_unitario_valores: (state, getters) => {
     var total = 0;
 
-    getters.cg_ff_tbl_recursos.forEach(item => (total += item.valor));
+    getters.cg_ff_tbl_recursos.forEach((item) => (total += item.valor));
     return total;
   },
   cg_ff_rec_total_recursos: (state, getters) => {
     var total = 0;
 
-    getters.cg_ff_tbl_recursos.forEach(item => {
+    getters.cg_ff_tbl_recursos.forEach((item) => {
       total += item.total;
     });
 
@@ -654,41 +663,41 @@ const getters = {
   cg_ff_eqt_total_depreciacao: (state, getters) => {
     var total = 0;
     getters.cg_ff_equipamentos_de_transbordo.forEach(
-      item => (total += item.depreciacao)
+      (item) => (total += item.depreciacao)
     );
     return total;
   },
-  cg_ff_equipamentos_de_transbordo: state =>
+  cg_ff_equipamentos_de_transbordo: (state) =>
     state.cg_ff_equipamentos_de_transbordo,
-  cg_ff_equipamentos: state => state.cg_ff_equipamentos,
-  cg_ff_recursos: state => state.cg_ff_recursos,
-  cg_ff_tbl_recursos: state => state.cg_ff_tbl_recursos,
-  cg_ff_variaveis_de_entrada: state => state.cg_ff_variaveis_de_entrada,
-  cg_ff_variaveis_de_ctrl: state => state.cg_ff_variaveis_de_ctrl,
-  cg_ff_custos_variaveis: state => state.cg_ff_custos_variaveis,
-  cg_ff_custos_fixos: state => state.cg_ff_custos_fixos,
+  cg_ff_equipamentos: (state) => state.cg_ff_equipamentos,
+  cg_ff_recursos: (state) => state.cg_ff_recursos,
+  cg_ff_tbl_recursos: (state) => state.cg_ff_tbl_recursos,
+  cg_ff_variaveis_de_entrada: (state) => state.cg_ff_variaveis_de_entrada,
+  cg_ff_variaveis_de_ctrl: (state) => state.cg_ff_variaveis_de_ctrl,
+  cg_ff_custos_variaveis: (state) => state.cg_ff_custos_variaveis,
+  cg_ff_custos_fixos: (state) => state.cg_ff_custos_fixos,
   cg_ff_cv_total: (state, getters) => {
     var total = 0;
-    getters.cg_ff_custos_variaveis.forEach(item => {
+    getters.cg_ff_custos_variaveis.forEach((item) => {
       total += item.valor;
     });
     return total;
   },
   cg_ff_cf_total: (state, getters) => {
     var total = 0;
-    getters.cg_ff_custos_fixos.forEach(item => {
+    getters.cg_ff_custos_fixos.forEach((item) => {
       total += item.valor;
     });
     return total;
   },
-  cg_ff_getVar: state => (grupo, formula) => {
-    return state[grupo].find(item => item.formula === formula);
-  }
+  cg_ff_getVar: (state) => (grupo, formula) => {
+    return state[grupo].find((item) => item.formula === formula);
+  },
 };
 const mutations = {
   cg_ff_setVariavelDeEntrada(state, newItem) {
     var indexOfItem = 0;
-    var el = state.cg_ff_variaveis_de_entrada.find(item => {
+    var el = state.cg_ff_variaveis_de_entrada.find((item) => {
       if (item.formula == newItem.formula) {
         return item;
       }
@@ -701,12 +710,12 @@ const mutations = {
       nome: el.nome,
       valor: newItem.valor,
       filters: el.filters,
-      dependentes: el.dependentes
+      dependentes: el.dependentes,
     });
   },
   cg_ff_setCustosVariaveis(state, newItem) {
     var indexOfItem = 0;
-    var el = state.cg_ff_custos_variaveis.find(item => {
+    var el = state.cg_ff_custos_variaveis.find((item) => {
       if (item.formula == newItem.formula) {
         return item;
       }
@@ -719,12 +728,12 @@ const mutations = {
       nome: el.nome,
       valor: newItem.valor,
       filters: el.filters,
-      dependentes: el.dependentes
+      dependentes: el.dependentes,
     });
   },
   cg_ff_setVariaveisControle(state, newItem) {
     var indexOfItem = 0;
-    var el = state.cg_ff_variaveis_de_ctrl.find(item => {
+    var el = state.cg_ff_variaveis_de_ctrl.find((item) => {
       if (item.formula == newItem.formula) {
         return item;
       }
@@ -737,12 +746,12 @@ const mutations = {
       nome: el.nome,
       valor: newItem.valor,
       filters: el.filters,
-      dependentes: el.dependentes
+      dependentes: el.dependentes,
     });
   },
   cg_ff_setCustosFixos(state, newItem) {
     var indexOfItem = 0;
-    var el = state.cg_ff_custos_fixos.find(item => {
+    var el = state.cg_ff_custos_fixos.find((item) => {
       if (item.formula == newItem.formula) {
         return item;
       }
@@ -755,7 +764,7 @@ const mutations = {
       nome: el.nome,
       valor: newItem.valor,
       filters: el.filters,
-      dependentes: el.dependentes
+      dependentes: el.dependentes,
     });
   },
   cg_ff_setEquipamentosDeTransbordo(state, newItem) {
@@ -763,7 +772,7 @@ const mutations = {
   },
   cg_ff_setTblRecursos(state, newItem) {
     state.cg_ff_tbl_recursos = newItem;
-  }
+  },
 };
 const actions = {
   cg_ff_ve_transbordo_medio_por_hora: (
@@ -779,7 +788,7 @@ const actions = {
 
     commit("cg_ff_setVariavelDeEntrada", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -796,7 +805,7 @@ const actions = {
 
     commit("cg_ff_setVariavelDeEntrada", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -810,7 +819,7 @@ const actions = {
 
     commit("cg_ff_setVariavelDeEntrada", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -824,7 +833,7 @@ const actions = {
 
     commit("cg_ff_setVariavelDeEntrada", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -841,7 +850,7 @@ const actions = {
 
     commit("cg_ff_setVariavelDeEntrada", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -855,7 +864,7 @@ const actions = {
 
     commit("cg_ff_setVariavelDeEntrada", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -885,7 +894,7 @@ const actions = {
 
     commit("cg_ff_setCustosVariaveis", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -909,7 +918,7 @@ const actions = {
     obj.valor = Number(formula) || 751969;
     commit("cg_ff_setCustosVariaveis", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -931,7 +940,7 @@ const actions = {
 
     commit("cg_ff_setCustosVariaveis", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -945,7 +954,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -959,7 +968,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -973,7 +982,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -987,7 +996,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1001,14 +1010,14 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
   cg_ff_ctrl_periodo_depreciacao_obra_civil: ({
     commit,
     getters,
-    dispatch
+    dispatch,
   }) => {
     var obj = getters.cg_ff_getVar(
       "cg_ff_variaveis_de_ctrl",
@@ -1019,7 +1028,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1033,7 +1042,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1041,7 +1050,7 @@ const actions = {
   cg_ff_ctrl_fator_manutencao_do_maquinario: ({
     commit,
     getters,
-    dispatch
+    dispatch,
   }) => {
     var obj = getters.cg_ff_getVar(
       "cg_ff_variaveis_de_ctrl",
@@ -1052,14 +1061,14 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
   cg_ff_ctrl_disponibilidade_de_vagoes_no_patio: ({
     commit,
     getters,
-    dispatch
+    dispatch,
   }) => {
     var obj = getters.cg_ff_getVar(
       "cg_ff_variaveis_de_ctrl",
@@ -1070,7 +1079,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1084,7 +1093,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1098,7 +1107,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1124,7 +1133,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1175,7 +1184,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1188,7 +1197,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1210,7 +1219,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1232,7 +1241,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1258,7 +1267,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1287,14 +1296,14 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
   cg_ff_ctrl_disponibilidade_dos_equipamentos: ({
     commit,
     getters,
-    dispatch
+    dispatch,
   }) => {
     var obj = getters.cg_ff_getVar(
       "cg_ff_variaveis_de_ctrl",
@@ -1304,7 +1313,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1317,7 +1326,7 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1330,13 +1339,13 @@ const actions = {
 
     commit("cg_ff_setVariaveisControle", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
   cg_ff_carregar_equipamentos_de_transbordo: ({ commit, getters }) => {
     var lista = [];
-    getters.cg_ff_equipamentos.forEach(item => {
+    getters.cg_ff_equipamentos.forEach((item) => {
       lista.push(getters.cg_ff_calcular_quantidade_e_depreciacao(item));
     });
     commit("cg_ff_setEquipamentosDeTransbordo", lista);
@@ -1344,7 +1353,7 @@ const actions = {
   cg_ff_carregar_tbl_de_recursos: ({ commit, getters }) => {
     var lista = [];
 
-    getters.cg_ff_recursos.forEach(item => {
+    getters.cg_ff_recursos.forEach((item) => {
       lista.push(getters.cg_ff_calcular_total_e_quantidade_recursos(item));
     });
     commit("cg_ff_setTblRecursos", lista);
@@ -1382,7 +1391,7 @@ const actions = {
 
     commit("cg_ff_setCustosFixos", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1408,7 +1417,7 @@ const actions = {
 
     commit("cg_ff_setCustosFixos", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1434,7 +1443,7 @@ const actions = {
 
     commit("cg_ff_setCustosFixos", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1448,7 +1457,7 @@ const actions = {
 
     commit("cg_ff_setCustosFixos", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1471,7 +1480,7 @@ const actions = {
 
     commit("cg_ff_setCustosFixos", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
   },
@@ -1498,15 +1507,15 @@ const actions = {
 
     commit("cg_ff_setCustosFixos", obj);
 
-    obj.dependentes.forEach(action => {
+    obj.dependentes.forEach((action) => {
       dispatch(action);
     });
-  }
+  },
 };
 
 export default {
   state,
   getters,
   actions,
-  mutations
+  mutations,
 };

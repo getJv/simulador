@@ -1,9 +1,9 @@
 <template>
   <v-tooltip v-model="show" top>
     <template v-slot:activator="{ on }">
-      <v-icon class="ma-1" @click.stop="dialog = true" v-on="on">
-        {{ icone }}
-      </v-icon>
+      <v-icon class="ma-1" @click.stop="dialog = true" v-on="on">{{
+        icone
+      }}</v-icon>
     </template>
     <span>{{ label }}</span>
 
@@ -14,7 +14,7 @@
           <v-row justify="center" align="center">
             <label class="pure-material-textfield-outlined">
               <money v-model="value" v-bind="money"></money>
-              <span> Valor</span>
+              <span>Valor</span>
             </label>
           </v-row>
         </v-card-text>
@@ -22,9 +22,9 @@
         <v-card-actions>
           <v-spacer></v-spacer>
 
-          <v-btn color="green darken-1" text @click="dialog = false">
-            Fechar
-          </v-btn>
+          <v-btn color="green darken-1" text @click="dialog = false"
+            >Fechar</v-btn
+          >
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -44,12 +44,16 @@ export default {
       required: true,
       type: String,
     },
+    decimalPrecision: {
+      required: true,
+      type: Number,
+    },
   },
   created() {
-    var obj = this.cg_hfh_getVar(
-      "cg_hfh_variaveis_de_entrada",
-      this.formulaName
+    var obj = this.emis_entrada_consumo_especifico.find(
+      (item) => item.formula == this.formulaName
     );
+
     this.label = obj.nome;
     this.icone = obj.icone;
   },
@@ -61,10 +65,10 @@ export default {
       dialog: false,
       money: {
         decimal: ",",
-        thousands: "",
+        thousands: ".",
         prefix: "",
         suffix: "",
-        precision: 2,
+        precision: this.decimalPrecision,
         masked: false /* doesn't work with directive */,
       },
     };
@@ -73,9 +77,8 @@ export default {
   computed: {
     value: {
       get() {
-        return this.cg_hfh_getVar(
-          "cg_hfh_variaveis_de_entrada",
-          this.formulaName
+        return this.emis_entrada_consumo_especifico.find(
+          (item) => item.formula == this.formulaName
         ).valor;
       },
       set(newValue) {
@@ -84,7 +87,7 @@ export default {
         }
       },
     },
-    ...mapGetters(["cg_hfh_getVar"]),
+    ...mapGetters(["emis_entrada_consumo_especifico"]),
   },
 };
 </script>

@@ -1,90 +1,196 @@
 <template>
   <v-tooltip v-model="show" top>
     <template v-slot:activator="{ on }">
-      <v-icon class="ma-1" @click.stop="dialog = true" v-on="on">
-        {{ icone }}
+      <v-icon class="ma-1" @click.stop="dialog = true" v-on="on"
+        >mdi-timetable
       </v-icon>
     </template>
-    <span>{{ label }}</span>
-
-    <v-dialog v-model="dialog" max-width="400">
-      <v-card>
-        <v-card-title class="body-1">{{ label }}</v-card-title>
+    <span>TKU</span>
+    <v-dialog v-model="dialog" min-width="400" max-width="700">
+      <v-card class="pa-3">
         <v-card-text>
-          <v-row justify="center" align="center">
-            <label class="pure-material-textfield-outlined">
-              <money v-model="value" v-bind="money"></money>
-              <span> Valor</span>
-            </label>
-          </v-row>
+          <!-- CRUD ANUAL INICIO-->
+          <v-data-table
+            :headers="headers"
+            :items="emis_entrada_tonelada_anos"
+            disable-pagination
+            hide-default-footer
+          >
+            <template v-slot:top>
+              <v-toolbar flat color="white">
+                <v-toolbar-title>Controle Anual</v-toolbar-title>
+                <v-divider class="mx-4" inset vertical></v-divider>
+                <v-spacer></v-spacer>
+                <v-dialog v-model="dialog_crud" max-width="500px">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                      color="primary"
+                      dark
+                      class="mb-2"
+                      v-bind="attrs"
+                      v-on="on"
+                      small
+                      >Adicionar</v-btn
+                    >
+                  </template>
+                  <v-card>
+                    <v-card-title>
+                      <span class="headline">{{ formTitle }}</span>
+                    </v-card-title>
+
+                    <v-card-text>
+                      <v-container>
+                        <v-row align="center" justify="center">
+                          <v-col cols="10" sm="6">
+                            <label class="pure-material-textfield-outlined">
+                              <money
+                                v-model="editedItem.volume_tku"
+                                v-bind="money"
+                              ></money>
+                              <span>Valor</span>
+                            </label>
+                          </v-col>
+                        </v-row>
+                      </v-container>
+                    </v-card-text>
+
+                    <v-card-actions>
+                      <v-spacer></v-spacer>
+                      <v-btn color="blue darken-1" text @click="close"
+                        >Cancel</v-btn
+                      >
+                      <v-btn color="blue darken-1" text @click="save"
+                        >Save</v-btn
+                      >
+                    </v-card-actions>
+                  </v-card>
+                </v-dialog>
+              </v-toolbar>
+            </template>
+            <template v-slot:item.actions="{ item }">
+              <!--               <v-icon small class="mr-2" @click="editItem(item)">
+                mdi-pencil
+              </v-icon> -->
+              <v-icon color="red" small @click="deleteItem(item)">
+                mdi-delete
+              </v-icon>
+            </template>
+            <template v-slot:item.volume_tku="{ item }">
+              {{ item.volume_tku | numberFormat }}
+            </template>
+            <template v-slot:no-data>
+              <p class="ma-2">Sem Informações</p>
+            </template>
+          </v-data-table>
+          <!-- CRUD ANUAL FIM -->
         </v-card-text>
-
-        <v-card-actions>
-          <v-spacer></v-spacer>
-
-          <v-btn color="green darken-1" text @click="dialog = false">
-            Fechar
-          </v-btn>
-        </v-card-actions>
       </v-card>
     </v-dialog>
   </v-tooltip>
 </template>
 <script>
 import { mapGetters } from "vuex";
+import bigDecimal from "js-big-decimal";
 import { Money } from "v-money";
 export default {
-  name: "NumberField",
+  name: "TKUAnual",
   components: {
     Money,
   },
-  props: {
-    //Espera um dos do valores do atributo formula das variaveis de entrada (store)
-    formulaName: {
-      required: true,
-      type: String,
+  props: ["modal"],
+  filters: {
+    numberFormat(value) {
+      var num = new bigDecimal(value);
+      // \.(?!.*\.) pega apenas o ultimo .
+      return num.getPrettyValue(3, ".").replace(/\.(?!.*\.)/g, ",");
     },
   },
-  created() {
-    var obj = this.cg_hfh_getVar(
-      "cg_hfh_variaveis_de_entrada",
-      this.formulaName
-    );
-    this.label = obj.nome;
-    this.icone = obj.icone;
+
+  watch: {
+    dialog_crud(val) {
+      val || this.close();
+    },
   },
+
   data() {
     return {
-      show: "",
-      label: "",
-      icone: "",
       dialog: false,
+      dialog_crud: false,
+      show: false,
+      headers: [
+        {
+          text: "Ano",
+          value: "ano",
+        },
+        { text: "Volume TKU", value: "volume_tku" },
+        { text: "Ações", value: "actions", sortable: false },
+      ],
+      editedIndex: -1,
+      editedItem: {
+        ano: 0,
+        volume_tku: 0,
+      },
+      defaultItem: {
+        ano: 0,
+        volume_tku: 0,
+      },
       money: {
         decimal: ",",
-        thousands: "",
+        thousands: ".",
         prefix: "",
         suffix: "",
-        precision: 2,
+        precision: this.decimalPrecision,
         masked: false /* doesn't work with directive */,
       },
     };
   },
 
   computed: {
-    value: {
-      get() {
-        return this.cg_hfh_getVar(
-          "cg_hfh_variaveis_de_entrada",
-          this.formulaName
-        ).valor;
-      },
-      set(newValue) {
-        if (newValue != this.value) {
-          this.$store.dispatch(this.formulaName, newValue);
-        }
-      },
+    formTitle() {
+      return this.editedIndex === -1 ? "Novo Item" : "Edição de Item";
     },
-    ...mapGetters(["cg_hfh_getVar"]),
+    ...mapGetters(["emis_entrada_tonelada_anos"]),
+  },
+  methods: {
+    editItem(item) {
+      this.editedIndex = this.emis_entrada_tonelada_anos.indexOf(item);
+      this.editedItem = Object.assign({}, item);
+      this.dialog_crud = true;
+    },
+
+    deleteItem(item) {
+      confirm("Deseja realmente remover este item?") &&
+        this.$store.dispatch("remove_tku_anual", {
+          modal: this.modal,
+          item: item,
+        });
+    },
+
+    close() {
+      this.dialog_crud = false;
+      this.dialog = false;
+      this.$nextTick(() => {
+        this.editedItem = Object.assign({}, this.defaultItem);
+        this.editedIndex = -1;
+      });
+    },
+
+    save() {
+      if (this.editedIndex > -1) {
+        //Object.assign(this.desserts[this.editedIndex], this.editedItem);
+        this.$store.dispatch("edit_tku_anual", {
+          index: this.editedIndex,
+          item: this.editedItem,
+        });
+      } else {
+        this.editedItem.ano = this.emis_entrada_tonelada_anos.length + 1;
+        this.$store.dispatch("add_tku_anual", {
+          modal: this.modal,
+          item: this.editedItem,
+        });
+      }
+      this.close();
+    },
   },
 };
 </script>

@@ -1,9 +1,7 @@
 <template>
   <v-tooltip v-model="show" top>
     <template v-slot:activator="{ on }">
-      <v-icon class="ma-1" @click.stop="dialog = true" v-on="on">
-        {{ icone }}
-      </v-icon>
+      <v-icon class="ma-1" @click.stop="dialog = true" v-on="on">{{ icone }}</v-icon>
     </template>
     <span>{{ label }}</span>
 
@@ -14,7 +12,7 @@
           <v-row justify="center" align="center">
             <label class="pure-material-textfield-outlined">
               <money v-model="value" v-bind="money"></money>
-              <span> Valor</span>
+              <span>Valor</span>
             </label>
           </v-row>
         </v-card-text>
@@ -22,9 +20,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
 
-          <v-btn color="green darken-1" text @click="dialog = false">
-            Fechar
-          </v-btn>
+          <v-btn color="green darken-1" text @click="dialog = false">Fechar</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -36,20 +32,21 @@ import { Money } from "v-money";
 export default {
   name: "NumberField",
   components: {
-    Money,
+    Money
   },
   props: {
     //Espera um dos do valores do atributo formula das variaveis de entrada (store)
     formulaName: {
       required: true,
-      type: String,
+      type: String
     },
+    decimalPrecision: {
+      required: true,
+      type: Number
+    }
   },
   created() {
-    var obj = this.cg_hfh_getVar(
-      "cg_hfh_variaveis_de_entrada",
-      this.formulaName
-    );
+    var obj = this.emp_getVar("emp_variaveis_de_entrada", this.formulaName);
     this.label = obj.nome;
     this.icone = obj.icone;
   },
@@ -61,31 +58,29 @@ export default {
       dialog: false,
       money: {
         decimal: ",",
-        thousands: "",
+        thousands: ".",
         prefix: "",
         suffix: "",
-        precision: 2,
-        masked: false /* doesn't work with directive */,
-      },
+        precision: this.decimalPrecision,
+        masked: false /* doesn't work with directive */
+      }
     };
   },
 
   computed: {
     value: {
       get() {
-        return this.cg_hfh_getVar(
-          "cg_hfh_variaveis_de_entrada",
-          this.formulaName
-        ).valor;
+        return this.emp_getVar("emp_variaveis_de_entrada", this.formulaName)
+          .valor;
       },
       set(newValue) {
         if (newValue != this.value) {
           this.$store.dispatch(this.formulaName, newValue);
         }
-      },
+      }
     },
-    ...mapGetters(["cg_hfh_getVar"]),
-  },
+    ...mapGetters(["emp_getVar"])
+  }
 };
 </script>
 <style scoped>

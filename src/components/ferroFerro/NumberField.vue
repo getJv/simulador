@@ -46,10 +46,7 @@ export default {
     },
   },
   created() {
-    var obj = this.cg_hfh_getVar(
-      "cg_hfh_variaveis_de_entrada",
-      this.formulaName
-    );
+    var obj = this.cg_ff_getVar("cg_ff_variaveis_de_entrada", this.formulaName);
     this.label = obj.nome;
     this.icone = obj.icone;
   },
@@ -73,10 +70,8 @@ export default {
   computed: {
     value: {
       get() {
-        return this.cg_hfh_getVar(
-          "cg_hfh_variaveis_de_entrada",
-          this.formulaName
-        ).valor;
+        return this.cg_ff_getVar("cg_ff_variaveis_de_entrada", this.formulaName)
+          .valor;
       },
       set(newValue) {
         if (newValue != this.value) {
@@ -84,7 +79,7 @@ export default {
         }
       },
     },
-    ...mapGetters(["cg_hfh_getVar"]),
+    ...mapGetters(["cg_ff_getVar"]),
   },
 };
 </script>

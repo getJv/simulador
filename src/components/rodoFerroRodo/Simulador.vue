@@ -1,76 +1,44 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12">
-      <p class="text-center text-uppercase headline">
-        <span>Variáveis de entrada</span>
-      </p>
-      <v-divider class="mx-4"></v-divider>
-    </v-col>
-    <v-col cols="12" md="4" v-for="v in cg_rfr_variaveis_de_entrada" :key="v.id">
-      <v-text-field
-        outlined
-        :id="v.formula"
-        :label="v.nome"
-        :value="v.valor"
-        @input.native="updateValue"
-      />
-    </v-col>
-    <v-col cols="12" class="green darken-2">
+  <v-card elevation="5" class="my-7">
+    <v-card-title>
+      <v-card dark color="green lighten-1" class="mt-n12 py-5 px-6 mr-3 elevation-5">
+        <v-icon>mdi-car-shift-pattern</v-icon>
+        <small>Carga Geral</small>
+      </v-card>
+    </v-card-title>
+    <v-card-text class="pa-5">
+      <div>
+        <p class="text-center title font-weight-black">Rodo-Ferro-Rodo</p>
+      </div>
       <v-row justify="center" align="center">
-        <v-col cols="12" md="6">
-          <v-card>
-            <v-card-text>
-              <p class="subtitle">Tarifa</p>
-              <p class="text-center headline">
-                {{
-                cg_rfr_getVar(
-                "cg_rfr_variaveis_de_ctrl",
-                "cg_rfr_ctrl_tarifa"
-                ).valor | currency
-                }}
-              </p>
-            </v-card-text>
-            <v-card-actions>
-              <v-dialog v-model="dialog" width="1500">
-                <template v-slot:activator="{ on }">
-                  <v-btn outlined block class="text-center" v-on="on">Ver Detalhamento</v-btn>
-                </template>
-
-                <v-card>
-                  <v-card-title
-                    class="headline grey lighten-2"
-                    primary-title
-                  >Detalhamento da simulação</v-card-title>
-
-                  <v-card-text>
-                    <Tabs />
-                  </v-card-text>
-
-                  <v-divider></v-divider>
-
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn color="primary" text @click="dialog = false">Fechar</v-btn>
-                  </v-card-actions>
-                </v-card>
-              </v-dialog>
-            </v-card-actions>
-          </v-card>
+        R$
+        <span class="ml-3 display-3 font-weight-black">{{ getResult[0] }}</span>
+        <span class="title pt-10">,{{ getResult[1] }}</span>
+      </v-row>
+    </v-card-text>
+    <v-card-actions>
+      <v-row justify="center" align="center">
+        <v-col cols="2" v-for="v in cg_rfr_variaveis_de_entrada" :key="v.id">
+          <NumberField :formulaName="v.formula" />
         </v-col>
       </v-row>
-    </v-col>
-  </v-row>
+    </v-card-actions>
+    <v-divider></v-divider>
+    <v-spacer></v-spacer>
+    <v-row align="center" justify="center">
+      <span class="text-center caption">Valor estimado da tarifa</span>
+    </v-row>
+  </v-card>
 </template>
 
 <script>
-import Tabs from "@/components/rodoFerroRodo/Tabs";
-
 import { mapGetters } from "vuex";
+import NumberField from "@/components/rodoFerroRodo/NumberField";
 
 export default {
   name: "Simulador",
   components: {
-    Tabs
+    NumberField
   },
   methods: {
     updateValue(e) {
@@ -122,6 +90,15 @@ export default {
     this.recalcula();
   },
   computed: {
+    getResult() {
+      var valor = this.cg_rfr_getVar(
+        "cg_rfr_variaveis_de_ctrl",
+        "cg_rfr_ctrl_tarifa"
+      ).valor;
+      valor = Math.round(valor * 100) / 100;
+
+      return (valor + "").split(".");
+    },
     ...mapGetters([
       "cg_rfr_getVar",
       "cg_rfr_variaveis_de_entrada",
