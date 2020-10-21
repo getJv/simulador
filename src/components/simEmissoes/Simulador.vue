@@ -1,4 +1,6 @@
 <template>
+<v-row align="start" justify="center" style="height: 100vh" class="pa-5">
+<v-col cols="12" :md="12" >
   <v-card
     v-if="$store.getters.emis_emissao_anual_calculada"
     elevation="5"
@@ -131,6 +133,8 @@
       >
     </v-row>
   </v-card>
+</v-col>
+</v-row>
 </template>
 
 <script>

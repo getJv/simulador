@@ -1,4 +1,6 @@
 <template>
+<v-row align="center" justify="center" style="height: 100vh" class="pa-5">
+<v-col cols="12" :md="8" >
   <v-card elevation="5" class="my-7">
     <v-card-title>
       <v-card
@@ -35,6 +37,8 @@
       <span class="text-center caption">Valor estimado da tarifa</span>
     </v-row>
   </v-card>
+</v-col>
+</v-row>
 </template>
 
 <script>

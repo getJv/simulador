@@ -13,7 +13,7 @@
       <v-divider></v-divider>
       <v-card-text class="title font-weight-light" style=" height: 500px;">
         <p class=" text-justify mt-5">
-          Como forma de disseminar conhecimento para a sociedade, a EPL
+          Como forma de disseminar conhecimento para a sociedade, foi desenvolvido
           desenvolveu ferramenta que permite calcular o volume de CO2 fóssil em
           toneladas. Com esses valores o simulador já indica o total de CO2
           equivalente, que considera outros gases de efeito estufa, e o total de
@@ -28,7 +28,7 @@
         <p class="text-justify">
           Para realizar os cálculos, basta selecionar o modo de transporte e
           inserir o fator de consumo em litros por mil TKUs ou utilizar o valor
-          padrão médio disponibilizado pela EPL.
+          padrão médio disponibilizado previamente.
         </p>
         <p class="text-justify">
           Para fazer a simulação você precisará calcular o total de TKU da

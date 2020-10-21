@@ -1,4 +1,6 @@
 <template>
+<v-row align="center" justify="center" style="height: 100vh" class="pa-5">
+<v-col cols="12" :md="10" >
   <v-card v-if="emp_result" elevation="5" class="my-7">
     <v-card-title>
       <v-card dark color="orange darken-5" class="mt-n12 py-5 px-6 mr-3 elevation-5">
@@ -56,6 +58,8 @@
       <span class="text-center caption">Quantidade estimada de pessoas</span>
     </v-row>
   </v-card>
+</v-col>
+</v-row>
 </template>
 
 <script>

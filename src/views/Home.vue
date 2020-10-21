@@ -1,23 +1,34 @@
 <template>
-  <v-row class="ma-5" justify="start" align="start">
-    <v-col cols="12" class="animated fadeIn fast">
-      <v-row align="start" justify="space-around">
-        <v-col
-          v-for="simulador in simuladores"
-          :key="simulador.component"
-          cols="12"
-          :md="simulador.md"
-          :lg="simulador.lg"
-          :xl="simulador.xl"
+<div
+  class="local-body pt-1"
+  :style="`backgroundImage: url(${backgroundUrl}); height: 100vh`"
+>
+    
+        <carousel-3d
+            :border="0"
+            height="900"
+            width="700"
+            :controls-visible="true"
         >
-          <component :is="simulador.component" />
-        </v-col>
-      </v-row>
-    </v-col>
-  </v-row>
+        
+          <slide 
+            v-for="(simulador,index) in simuladores"
+            :key="simulador.component"
+            :index="index"
+          >
+          
+             <component :is="simulador.component" />
+          
+            
+          </slide>
+         
+        </carousel-3d>
+    
+  </div>
 </template>
 
 <script>
+import backgroundUrl from "@/assets/pexels-marcin-jozwiak-3634730-opaco.jpg";
 import SimuladorHidroFerroHidro from "@/components/hidroFerroHidro/Simulador";
 import SimuladorHidroRodoHidro from "@/components/hidroRodoHidro/Simulador";
 import SimuladorRodoFerroRodo from "@/components/rodoFerroRodo/Simulador";
@@ -36,7 +47,15 @@ export default {
   },
   data() {
     return {
+      backgroundUrl,
       simuladores: [
+        {
+          nome: "Sim - Emissões",
+          component: "SimuladorEmissoes",
+          md: "6",
+          lg: "6",
+          xl: "5",
+        },
         {
           nome: "CG - HIDRO-FERRO-HIDRO",
           component: "SimuladorHidroFerroHidro",
@@ -72,15 +91,21 @@ export default {
           lg: "6",
           xl: "5",
         },
-        {
-          nome: "Sim - Emissões",
-          component: "SimuladorEmissoes",
-          md: "6",
-          lg: "6",
-          xl: "5",
-        },
+        
       ],
     };
   },
 };
 </script>
+
+<style>
+.carousel-3d-slide{
+  background-color: transparent !important; 
+}
+.local-body {
+  height: 100%;
+  width: 100%;
+  background-repeat: repeat-y;
+  margin: 0;
+}
+</style>
